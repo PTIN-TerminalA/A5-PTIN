@@ -1,0 +1,6 @@
+# Ignorar entornos virtuales
+venv/
+*/venv/
+**/venv/
+
+
