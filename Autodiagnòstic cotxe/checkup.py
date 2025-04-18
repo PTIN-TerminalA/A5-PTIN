@@ -26,6 +26,7 @@ def readCSV(filename):
         return fila
     except Exception as e:
         print(f"Error: {e}")
+        usage()
         sys.exit(1)
 
 def classifyEstat(rows):
