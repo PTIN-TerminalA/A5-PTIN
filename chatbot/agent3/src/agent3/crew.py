@@ -16,10 +16,12 @@ from crewai import LLM
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
 
+# Instància del model LLM que s’utilitzarà per als agents
 llm= LLM(model="ollama/llama3.1", base_url="http://localhost:11434", temperature=0.3)
 
+# Eina que permet buscar informació dins d’una carpeta local
 tool = DirectorySearchTool(
-    directory='knowledge/',
+    directory='knowledge/', # Carpeta que conté els documents de coneixement
     config=dict(
         llm=dict(
             provider="ollama", # or google, openai, anthropic, llama2, ...
@@ -51,11 +53,15 @@ class Agent3():
     # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
     # Tasks: https://docs.crewai.com/concepts/tasks#yaml-configuration-recommended
    # agents_config = 'config/agents.yaml'
+
+    # Ruta al fitxer YAML on estan definides les tasques
     tasks_config = 'config/tasks.yaml'
 
 
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
+
+    # Definició d’un agent que farà preguntes i respostes sobre serveis d’aeroport
     @agent
     def qa_agent(self) -> Agent:
         return Agent(
@@ -69,10 +75,10 @@ class Agent3():
             backstory="""Eres un experto en servicios aeroportuarios con acceso a una base de datos
                         detallada en formato CSV. Tu objetivo es ayudar a las personas a encontrar respuestas rápidas y precisas.
                         Siempre respondes en el mismo idioma que usa la persona al preguntar (por ejemplo, español, inglés o catalán).""",
-            llm=llm,
-            tools=[tool],
-            allow_delegation=False,
-            memory=True,
+            llm=llm, # Model de llenguatge a utilitzar
+            tools=[tool], # Llista d’eines que pot fer servir
+            allow_delegation=False, # No permet delegar tasques a altres agents
+            memory=True, # Activa la memòria (encara que no funciona del tot correctament en aquesta versió)
             embedder={
                 "provider": "ollama",
                 "config": {
@@ -81,28 +87,13 @@ class Agent3():
             } 
         )
 
-    # @agent
-    # def reporting_analyst(self) -> Agent:
-    #     return Agent(
-    #         config=self.agents_config['reporting_analyst'],
-    #         verbose=True
-    #     )
-
-    # To learn more about structured task outputs,
-    # task dependencies, and task callbacks, check out the documentation:
-    # https://docs.crewai.com/concepts/tasks#overview-of-a-task
+    # Definició d’una tasca per respondre preguntes, extreta d’un YAML
     @task
     def answer_question_task(self) -> Task:
         return Task(
-            config=self.tasks_config['answer_question_task'],
+            config=self.tasks_config['answer_question_task'], # Llegeix la configuració d’aquesta tasca des del fitxer YAML
         )
 
-    # @task
-    # def reporting_task(self) -> Task:
-    #     return Task(
-    #         config=self.tasks_config['reporting_task'],
-    #         output_file='report.md'
-    #     )
 
     @crew
     def crew(self) -> Crew:
@@ -113,10 +104,10 @@ class Agent3():
         return Crew(
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
-            process=Process.sequential,
+            process=Process.sequential, # Les tasques s’executen una darrere l’altra
            # knowledge_sources=[self.csv_source],
-            verbose=True,
-            memory=True,  # Enable memory for the crew
+            verbose=True,  # Mostra informació detallada de l’execució
+            memory=True,  # Activa la memòria per a tot el crew (no funciona 100% bé actualment)
             embedder={
                 "provider": "ollama",
                 "config": {

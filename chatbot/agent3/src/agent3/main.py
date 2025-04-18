@@ -20,22 +20,28 @@ def run():
     Run the crew.
     """    
     while True:
+        # Mostra el prompt i recull l’entrada de l’usuari
         user_input = input("You: ")
+
+        # Si l’usuari escriu alguna d’aquestes paraules, es finalitza la sessió
         if user_input.lower() in ["exit", "quit", "bye"]:
             print("Chatbot: Goodbye! It was nice talking to you.")
             break
         #conversation_history.append(f"User: {user_input}")
         #context = "\n".join(conversation_history[-3:])  # Usa los últimos 3 mensajes
 
+        # Prepara les dades d’entrada per al crew
         inputs = {
             'user_message': f"{user_input}",
         }
         try:
+             # Crea una nova instància del crew i l’executa amb les dades d’entrada
            response = Agent3().crew().kickoff(inputs=inputs)
         except Exception as e:
             raise Exception(f"An error occurred while running the crew: {e}")
 
-        conversation_history.append(f"Assistant: {response}")
+        #conversation_history.append(f"Assistant: {response}")
+        # Mostra la resposta per pantalla
         print(f"Assistant: {response}")
 
 
