@@ -6,6 +6,7 @@ Benvingut al projecte Agent3 Crew, impulsat per crewAI. Aquesta plantilla està 
 
 Assegura't de tenir instal·lat Python >=3.10 i <3.13 al teu sistema. Aquest projecte utilitza UV per a la gestió de dependències i paquets, oferint una experiència d’instal·lació i execució fluïda.
 
+### Crewai
 Primer, si encara no ho tenim fet, instal·lem uv:
 
 ```bash
@@ -44,6 +45,20 @@ pip install 'crewai[tools]' , si dona error: pip install "crewai[tools]"
 - Modifica `src/agent3/config/tasks.yaml` per a definir les tasques 
 - Modifica `src/agent3/crew.py` per afegir la teva pròpia lògica, eines i arguments específics
 - Modifica `src/agent3/main.py` per afegir entrades personalitzades per als teus agents i tasques
+
+### Ollama
+En tindre tot el necessari per a crewai, ens quedaria descarregar el model de ollama que farem servir i també el embbeder. 
+Per fer tot això, se suposa que ja tenim el programa ollama instal·lat. 
+
+Instal·lem el model pre-entrenat
+```bash
+ollama pull llama3.1
+```
+
+Instal·lem el embbeder 
+```bash
+ollama pull mxbai-embed-large
+```
 
 ## Executar el projecte
 
