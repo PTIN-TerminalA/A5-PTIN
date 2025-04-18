@@ -38,7 +38,7 @@ def classifica_estat(entropia, temp, cpu, ram, espai_sd, cam_variacio):
 
 # Generar dataset
 with open("dades_sintetiques.csv", "w", newline="") as f:
-    fieldnames = ["entropia_ultrasonic", "temp_cpu", "cpu_percent", "ram_percent", "espai_sd_percent", "cam_variacio", "estat"]
+    fieldnames = ["entropia_ultrasonic", "temp_cpu", "cpu_percent", "ram_percent", "espai_sd_percent", "cam_variacio"]
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writeheader()
 
@@ -50,7 +50,7 @@ with open("dades_sintetiques.csv", "w", newline="") as f:
         espai_sd = random.uniform(0, 100)
         cam_var = random.uniform(0, 70)
 
-        estat = classifica_estat(entropia, temp, cpu, ram, espai_sd, cam_var)
+        #estat = classifica_estat(entropia, temp, cpu, ram, espai_sd, cam_var)
 
         writer.writerow({
             "entropia_ultrasonic": round(entropia, 2),
@@ -59,5 +59,5 @@ with open("dades_sintetiques.csv", "w", newline="") as f:
             "ram_percent": round(ram, 1),
             "espai_sd_percent": round(espai_sd, 1),
             "cam_variacio": round(cam_var, 2),
-            "estat": estat
+            #"estat": estat
         })
