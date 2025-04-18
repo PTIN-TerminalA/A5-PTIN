@@ -1,54 +1,59 @@
 # Agent3 Crew
 
-Welcome to the Agent3 Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+Benvingut al projecte Agent3 Crew, impulsat per crewAI. Aquesta plantilla està dissenyada per ajudar-te a configurar un sistema d’IA multiagent de manera senzilla, aprofitant el potent i flexible marc que proporciona crewAI. El nostre objectiu és permetre que els teus agents col·laborin de manera efectiva en tasques complexes, maximitzant la seva intel·ligència col·lectiva i les seves capacitats.
 
-## Installation
+## Instal·lació
 
-Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+Assegura't de tenir instal·lat Python >=3.10 i <3.13 al teu sistema. Aquest projecte utilitza UV per a la gestió de dependències i paquets, oferint una experiència d’instal·lació i execució fluïda.
 
-First, if you haven't already, install uv:
+Primer, si encara no ho tenim fet, instal·lem uv:
 
 ```bash
 pip install uv
 ```
+O si no també es pot instal·lar uv amb:
 
-Next, navigate to your project directory and install the dependencies:
-
-(Optional) Lock the dependencies and install them by using the CLI command:
+Linux 
 ```bash
-crewai install
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
-### Customizing
+Windows
+```bash 
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+A continuació, ves al directori del teu projecte i instal·la les dependències:
 
-- Modify `src/agent3/config/agents.yaml` to define your agents
-- Modify `src/agent3/config/tasks.yaml` to define your tasks
-- Modify `src/agent3/crew.py` to add your own logic, tools and specific args
-- Modify `src/agent3/main.py` to add custom inputs for your agents and tasks
+Instal·lem primer crewai:
 
-## Running the Project
+```bash
+uv tool install crewai
+```
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+Un cop instal·lat hem d'instal·lar les dependències:
+
+```bash
+uv add langchain
+uv add ollama
+pip install 'crewai[tools]' , si dona error: pip install "crewai[tools]"
+
+```
+### Personalització
+
+- Mofica `src/agent3/config/agents.yaml` per a definir els agents
+- Modifica `src/agent3/config/tasks.yaml` per a definir les tasques 
+- Modifica `src/agent3/crew.py` per afegir la teva pròpia lògica, eines i arguments específics
+- Modifica `src/agent3/main.py` per afegir entrades personalitzades per als teus agents i tasques
+
+## Executar el projecte
+
+Per posar en marxa el teu equip d’agents d’IA i començar l’execució de tasques, executa això des de la carpeta arrel del teu projecte:
 
 ```bash
 $ crewai run
 ```
+Aquesta comanda inicialitza l’equip Agent3, agrupant els agents i assignant-los les tasques segons la configuració definida.
 
-This command initializes the agent3 Crew, assembling the agents and assigning them tasks as defined in your configuration.
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
 
-## Understanding Your Crew
 
-The agent3 Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
-
-## Support
-
-For support, questions, or feedback regarding the Agent3 Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
