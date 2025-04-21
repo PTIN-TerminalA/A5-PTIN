@@ -22,4 +22,4 @@ def marcar_punto_normalizado(ruta_imagen, x_norm, y_norm, salida='plano_marcado.
     print(f"Punto marcado en ({x_norm:.2f}, {y_norm:.2f}) y guardado como '{salida}'")
 
 
-marcar_punto_normalizado("MapaTerminalA.png", 0.5, 0.5) 
+#marcar_punto_normalizado("MapaTerminalA.png", 0.5, 0.5) 
