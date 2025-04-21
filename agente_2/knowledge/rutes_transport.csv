@@ -1,0 +1,7 @@
+origen,destí,temps_vehicle,temps_peu,vehicle_disponible
+Terminal A,Terminal B,6,15,sí
+Terminal A,Oficines,4,10,sí
+Terminal B,Oficines,5,12,no
+Zona d'arribades,Porta 12,3,8,sí
+Zona comercial,Terminal A,2,5,sí
+Terminal B,Zona d’arribades,7,16,no
