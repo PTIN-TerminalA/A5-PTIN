@@ -1,0 +1,2 @@
+Terminal,UbicacionExacta,TipoServicio,Nombre,HorarioApertura,HorarioCierre,ServiciosDisponibles,Descripcion,Destinos
+Terminal A,"Acceso principal, Entrada Norte",Puerta de Embarque,Puerta A1,05:00,23:00,"Informacion al pasajero, Transporte publico","Ubicacion principal de embarque en el Terminal A. Accesos cercanos: Entrada Norte, con facil conexion a la estacion de tren y aparcamiento cercano.","Madrid, Barcelona, Roma"
