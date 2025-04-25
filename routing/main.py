@@ -19,6 +19,11 @@ def main():
         print(f"Ruta trobada amb {len(path)} passos.")
         planner.savePathToJSON(path, 'path.json')
         planner.plotPath(path)
+        temps_per_pixel = 0.4
+        temps_total = temps_per_pixel * len(path)
+        temps_total = round(temps_total,2)
+        print(f"Temps total estimat: {temps_total} segons") 
+        planner.plotPath(path)
     else:
         print("Ruta no trobada.")
 
