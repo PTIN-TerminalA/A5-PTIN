@@ -1,0 +1,12 @@
+answer_question_task:
+  description: >
+    Responde a: {user_message} .
+    Este agente responde preguntas realizadas por el usuario de manera clara, útil y concisa. Utiliza el conocimiento disponible en el archivo dades_serveis.csv y adapta el tono según el tipo de pregunta.
+  expected_output: >
+    Respuesta completa en el idioma de la pregunta {user_message} con información adaptada del CSV dades_serveis.csv  , con:
+                        - Nombre del establecimiento
+                        - Ubicación exacta (terminal y puerta)
+                        - Horario
+                        - Precio (si aplica)
+                        - Información adicional relevante            
+# agent: qa_agent
