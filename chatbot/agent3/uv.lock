@@ -13,12 +13,14 @@ name = "agent3"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "chromadb" },
     { name = "crewai", extra = ["tools"] },
     { name = "ollama" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "chromadb", specifier = ">=0.5.23" },
     { name = "crewai", extras = ["tools"], specifier = ">=0.114.0,<1.0.0" },
     { name = "ollama", specifier = ">=0.4.7" },
 ]

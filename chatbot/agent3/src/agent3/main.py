@@ -32,7 +32,8 @@ def run():
 
         # Prepara les dades d’entrada per al crew
         inputs = {
-            'user_message': f"{user_input}",
+            "user_message": f"{user_input}",
+             "language": "es",
         }
         try:
              # Crea una nova instància del crew i l’executa amb les dades d’entrada
