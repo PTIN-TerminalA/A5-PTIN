@@ -1,0 +1,26 @@
+{
+  "id": "8",
+  "airline": "Vueling",
+  "airlineImage": {
+    "uri": "https://play-lh.googleusercontent.com/PUEfpx0TaaLM52ZjX70d2_HZUUvN1RJ6VwtAejTwxPIat_GMuVuGShKx2JGG38_yi7c=w600-h300-pc0xffffff-pd"
+  },
+  "flightNumber": "VU 9280",
+  "route": {
+    "origin": "BCN",
+    "originName": "Barcelona-El Prat",
+    "destination": "CDG",
+    "destinationName": "Paris Charles de Gaulle",
+    "departureTime": "2025-05-16T14:00:00",
+    "arrivalTime": "2025-05-16T16:30:00",
+    "terminal": "4S",
+    "gate": "C3"
+  },
+  "passenger": {
+    "name": "Luis Fern\u00e1ndez Garc\u00eda",
+    "seat": "8D",
+    "ticketNumber": "VU-5204113664"
+  },
+  "boardingTime": "2025-05-16T13:30:00",
+  "baggageAllowance": "1 \u00d7 10kg",
+  "qrCode": "boardingpass://8"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "7",
+  "airline": "Vueling",
+  "airlineImage": {
+    "uri": "https://play-lh.googleusercontent.com/PUEfpx0TaaLM52ZjX70d2_HZUUvN1RJ6VwtAejTwxPIat_GMuVuGShKx2JGG38_yi7c=w600-h300-pc0xffffff-pd"
+  },
+  "flightNumber": "VU 2642",
+  "route": {
+    "origin": "BCN",
+    "originName": "Barcelona-El Prat",
+    "destination": "AMS",
+    "destinationName": "Amsterdam Schiphol",
+    "departureTime": "2025-05-27T16:00:00",
+    "arrivalTime": "2025-05-27T18:00:00",
+    "terminal": "4S",
+    "gate": "D14"
+  },
+  "passenger": {
+    "name": "Laura P\u00e9rez",
+    "seat": "24A",
+    "ticketNumber": "VU-5519461089"
+  },
+  "boardingTime": "2025-05-27T15:30:00",
+  "baggageAllowance": "1 \u00d7 10kg",
+  "qrCode": "boardingpass://7"
+}

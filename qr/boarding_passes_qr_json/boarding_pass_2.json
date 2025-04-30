@@ -1,0 +1,26 @@
+{
+  "id": "2",
+  "airline": "Iberia",
+  "airlineImage": {
+    "uri": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Iberia_air_logo.png/1200px-Iberia_air_logo.png"
+  },
+  "flightNumber": "LU 3647",
+  "route": {
+    "origin": "BCN",
+    "originName": "Barcelona-El Prat",
+    "destination": "LHR",
+    "destinationName": "London Heathrow ",
+    "departureTime": "2025-05-06T20:00:00",
+    "arrivalTime": "2025-05-06T22:00:00",
+    "terminal": "4S",
+    "gate": "D1"
+  },
+  "passenger": {
+    "name": "Luis Fern\u00e1ndez Garc\u00eda",
+    "seat": "30D",
+    "ticketNumber": "LU-3400706794"
+  },
+  "boardingTime": "2025-05-06T19:30:00",
+  "baggageAllowance": "1 \u00d7 23kg",
+  "qrCode": "boardingpass://2"
+}
