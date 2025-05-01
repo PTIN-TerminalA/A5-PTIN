@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 import sys
 import warnings
+from mem0 import MemoryClient
 
 from agent3.crew import Agent3
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
+
 
 # This main file is intended to be a way for you to run your
 # crew locally, so refrain from adding unnecessary logic into this file.
@@ -12,37 +14,32 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 # interpolate any tasks and agents information
 
 
-conversation_history = []
-
-
 def run():
-    """
-    Run the crew.
-    """    
+
+    history = []    
     while True:
+        
         # Mostra el prompt i recull l’entrada de l’usuari
-        user_input = input("You: ")
+        user_input = input("john: ")
 
         # Si l’usuari escriu alguna d’aquestes paraules, es finalitza la sessió
         if user_input.lower() in ["exit", "quit", "bye"]:
             print("Chatbot: Goodbye! It was nice talking to you.")
             break
-        #conversation_history.append(f"User: {user_input}")
-        #context = "\n".join(conversation_history[-3:])  # Usa los últimos 3 mensajes
+        
+        chat_history = "\n".join(history[-2:]) if len(history) >= 2 else ""
 
         # Prepara les dades d’entrada per al crew
         inputs = {
             "user_message": f"{user_input}",
-             "language": "es",
+             "history": f"{chat_history}",
         }
-        try:
-             # Crea una nova instància del crew i l’executa amb les dades d’entrada
-           response = Agent3().crew().kickoff(inputs=inputs)
-        except Exception as e:
-            raise Exception(f"An error occurred while running the crew: {e}")
 
-        #conversation_history.append(f"Assistant: {response}")
-        # Mostra la resposta per pantalla
+        response = Agent3().crew().kickoff(inputs=inputs)
+
+        history.append(f"User: {user_input}")
+        history.append(f"Assistant: {response}")
+
         print(f"Assistant: {response}")
 
 
