@@ -4,7 +4,7 @@ Benvingut al projecte Agent3 Crew, impulsat per crewAI. Aquesta plantilla està 
 
 ## Instal·lació
 
-Assegura't de tenir instal·lat Python >=3.10 i <3.13 al teu sistema. Aquest projecte utilitza UV per a la gestió de dependències i paquets, oferint una experiència d’instal·lació i execució fluïda.
+Assegura't de tenir instal·lat Python >=3.12 i <3.13 al teu sistema. Aquest projecte utilitza UV per a la gestió de dependències i paquets, oferint una experiència d’instal·lació i execució fluïda.
 
 ### Crewai
 Primer, si encara no ho tenim fet, instal·lem uv:
@@ -57,7 +57,7 @@ ollama pull llama3.1
 
 Instal·lem el embbeder 
 ```bash
-ollama pull mxbai-embed-large
+ollama pull nomic-embed-text
 ```
 
 ## Executar el projecte
