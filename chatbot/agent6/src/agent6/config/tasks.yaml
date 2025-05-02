@@ -1,0 +1,9 @@
+control_sessio_task:
+  description: >
+    Comprova l’estat de la sessió segons el missatge de l’usuari. Assigna un UUID si no existeix, i tanca la sessió si detecta inactivitat o missatge de comiat.
+  expected_output: >
+    Retorna un JSON amb:
+      - "sessio_activa": true o false
+      - "sessio_id": UUID de la sessió
+      - "motiu": "nova", "inactivitat", "final voluntari", "activa"
+  agent: agent_control_sessio
