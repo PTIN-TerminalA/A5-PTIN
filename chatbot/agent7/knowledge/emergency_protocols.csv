@@ -1,0 +1,185 @@
+Tipus;Instruccions;Seguretat;Evitar;Ajuda
+Incendi en edifici;"1. Activar alarma
+2. Sortir ràpidament
+3. Tancar portes
+4. Reunir-se en punt segur";"Respirar a través de roba humida
+Anar ajupit si hi ha fum";"Ascensors
+Obrir portes calentes";"Bombers: 080
+Emergències: 112"
+Terratrèmol;"1. Agafar-se a estructura sòlida
+2. Cobrir cap i coll
+3. Esperar que acabi
+4. Evacuar si hi ha danys";"Allunyar-se de vidres
+Protegir-se sota taules";"Escales durant el sisme
+Sortir corrent";"Protecció Civil: 012
+Emergències: 112"
+Atac cardíac;"1. Demanar ajuda
+2. Posició còmoda
+3. Iniciar RCP
+4. Utilitzar DEA";"Cronometrar temps
+Mantenir via aèria";"Donar menjar/aigua
+Moure la persona";Emergències mèdiques: 061
+Fuga de gas;"1. No encendre res
+2. Tancar vàlvula
+3. Obrir finestres
+4. Evacuar";"Sortir ajupit
+No utilitzar telèfons";"Crear espurnes
+Fumar";Empresa gasista: 900 750 750
+Amenaça explosiva;"1. Allunyar-se
+2. Avisar autoritats
+3. Coberir-se
+4. Evacuar en sentit contrari";"Distància 300m
+No utilitzar ràdios";"Tocar objectes
+Agrupar-se";"Policia: 091
+Emergències: 112"
+Inundació;"1. Anar a pisos alts
+2. Tallar electricitat
+3. No creuar aigua
+4. Esperar rescat";"Flotadors
+Senyalitzar posició";"Conduir inundacions
+Beure aigua no embotellada";Protecció Civil: 012
+Intoxicació alimentària;"1. No induir vòmit
+2. Hidratar
+3. Guardar mostra
+4. Monitorar símptomes";"Registrar hora ingesta
+Controlar temperatura";"Menjar/llet
+Medicaments sense supervisió";Centre Antiverins: 915 620 420
+Accident trànsit;"1. Assegurar escena
+2. Ajudar ferits
+3. Senyalitzar
+4. Esperar assistència";"Chalec reflectant
+Triangle emergència";"Moure ferits
+Fumar a l'àrea";"Emergències: 112
+Assistència carretera: 088"
+Electrocutació;"1. Tallar corrent
+2. Allunyar amb objecte no conductor
+3. Comprovar respiració
+4. RCP si cal";"No tocar directament
+Utilitzar goma o fusta";"Aigua propera
+Objectes metàl·lics";Emergències: 112
+Hemorràgia greu;"1. Comprimir ferida
+2. Elevar membre
+3. Aplicar torniquet
+4. Mantenir abrigat";"Utilitzar guants
+Controlar temps torniquet";"Treure objectes clavats
+Rentar ferida";Emergències: 112
+Atac d'ansietat;"1. Portar a lloc tranquil
+2. Respiració controlada
+3. Acompanyar
+4. Ofegar aigua";"Evitar multituds
+Parar activitat";"Qüestionar l'episodi
+Minimitzar sentiments";Salut mental: 024
+Incendi forestal proper;"1. Tancar finestres
+2. Mulla teulada
+3. Preparar evacuació
+4. Seguir instruccions autoritats";"Màscara anti-fum
+Roba cobreix pell";"Vestir sintètics
+Utilitzar aigua potable per extinció";INFOCA: 085
+Al·lèrgia greu;"1. Administrar epinefrina
+2. Posició semiincorporada
+3. Aflonar roba
+4. Monitorar respiració";"Controlar temps exposició
+Identificar al·lergen";"Donar menjar/beguda
+Deixar sola la persona";Emergències: 112
+Gelada extrema;"1. Refugi immediat
+2. Capes de roba
+3. Moviment suau
+4. Begudes calentes";"Protegir extremitats
+Evitar suor excessiva";"Alcohol
+Fregar zones congelades";Emergències: 112
+Onada de calor;"1. Lloc fresc
+2. Hidratació constant
+3. Roba clara
+4. Dutxes freqüents";"Evitar hores centrals
+Controlar persones vulnerables";"Alcohol/cafeïna
+Exercici intens";Centres de salut
+Accident químic industrial;"1. Tancar conductes
+2. Evacuar contra vent
+3. Protecció respiratòria
+4. Descontaminació";"Distància segura
+Senyalitzar zona";"Encendre flamarades
+Barrejar productes";Centre Toxicologia: 915 620 420
+Caiguda altura;"1. Immobilitzar
+2. Comprovar consciència
+3. Controlar hemorràgies
+4. Mantenir temperatura";"No moure columna
+Suport cervical";"Aixecar persona
+Donar menjar/aigua";Emergències: 112
+Ofegament aigua;"1. Sortir aigua
+2. Comprovar respiració
+3. RCP si necessari
+4. Posició lateral";"Assegurar escena
+Mantenir abrigat";"Intent aspirar aigua
+Deixar sola la persona";Emergències: 112
+Tall greu;"1. Pressió directa
+2. Elevar membre
+3. Neteja superficial
+4. Cobrir amb estèril";"Utilitzar guants
+Controlar profunditat";"Utilitzar torniquet innecessari
+Aplicar substàncies";Centres de salut urgents
+Picada vespa/al·lergica;"1. Treure agulló
+2. Netejar zona
+3. Aplicar fred
+4. Monitorar reacció";"Identificar insecte
+Controlar inflamació";"Esprémer zona
+Utilitzar torniquet";Emergències si dificultat respiratòria
+Desmai;"1. Col·locar lateral
+2. Aflonar roba
+3. Elevar peus
+4. Comprovar respiració";"Controlar via aèria
+Buscar lesions";"Donar menjar/aigua
+Golpejar persona";Emergències si no recupera en 2 min
+Crisi epilèptica;"1. Protegir cap
+2. Allunyar objectes
+3. Cronometrar temps
+4. Posició lateral post-crisi";"Espai ventilat
+No contenir moviments";"Posar objectes a boca
+Donar medicació oral durant crisi";Emergències si dura +5 min
+Intoxicació medicamentosa;"1. Identificar substància
+2. No induir vòmit
+3. Guardar envas
+4. Monitorar constants";"Quantitat ingerida
+Hora ingesta";"Remedis casolans
+Donar llet";Centre Antiverins: 915 620 420
+Accident elèctric domèstic;"1. Tallar corrent
+2. Allunyar amb fusta
+3. Comprovar consciència
+4. RCP si cal";"No tocar persona connectada
+Utilitzar material no conductor";"Aigua propera
+Activar interruptors";Emergències: 112
+Fractura oberta;"1. No reduir fractura
+2. Cobrir amb estèril
+3. Immobilitzar
+4. Aplicar fred";"Controlar hemorràgia
+Prevenir xoc";"Moure extremitat
+Intentar 'recol·locar'";Emergències: 112
+Hipotèrmia;"1. Refugi càlid
+2. Cobriment progressiu
+3. Begudes calentes
+4. Contacte pell-pell si cal";"Evitar escalfament ràpid
+Controlar constants";"Fregar extremitats
+Alcohol";Emergències: 112
+Golp de calor;"1. Lloc fresc
+2. Desvestir
+3. Refredar amb aigua
+4. Hidratar si conscient";"Controlar temperatura
+Posició lateral";"Aigua gelada
+Medicaments antifebrils";Emergències: 112
+Accident amb animals verinosos;"1. Immobilitzar membre
+2. Netejar zona
+3. Posició neutra
+4. Transport urgent";"Identificar animal
+Controlar inflamació";"Tallar/succionar verí
+Aplicar torniquet";Centre Antiverins: 915 620 420
+Emergència psiquiàtrica;"1. Espai tranquil
+2. Evitar confrontació
+3. Parar autolesions
+4. Esperar ajuda";"Mantenir distància segura
+Retirar objectes perillosos";"Sobreactuar
+Minimitzar sentiments";Salut Mental: 024
+Emergència diabètica;"1. Identificar si hipo/hiperglucèmia
+2. Administrar sucre/insulina segons cas
+3. Posició lateral
+4. Monitorar consciència";"Controlar nivells si possible
+Prevenir aspiració";"Insulina en hipoglucèmia
+Sucre en inconsciència";Emergències: 112
