@@ -1,0 +1,31 @@
+incident_type,protocol,contact_point,extra_info
+Taxi booking issues,Go to the Information Point at the Terminal or Airport Police.,Customer Service: +34 900 456 789.,You may be required to fill in a claim form for missing baggage.
+Food allergies,Ask for assistance at any Information Point in the terminal.,Help Desk: +34 900 321 654.,Make sure to bring valid personal identification.
+"Taxi booking issues,Go to the lost and found at the airport entrance to report the incident.,""Information Point: Terminal A, near Gate 2."",Make sure to bring valid personal identification."
+Check-in problems,Proceed to the Customer Service Desk for immediate assistance.,Police contact: +34 900 987 654.,You can also use the airline app for immediate help.
+Taxi booking issues,Proceed to the Customer Service Desk for immediate assistance.,Traveler Assistance Desk: Terminal B.,Contact the airline directly for rebooking your ticket.
+"Flight delay,Visit the nearest police station at the airport for immediate assistance.,""Security Office: Terminal A, Ground Floor."",You can also use the airline app for immediate help."
+Document issues,Go to the Information Point at the Terminal or Airport Police.,Traveler Assistance Desk: Terminal B.,You may need to provide your flight details and baggage claim tag.
+Food allergies,Ask for assistance at any Information Point in the terminal.,Police contact: +34 900 987 654.,Ensure you have a valid passport for security checks.
+Flight cancellation,Go to the lost and found at the airport entrance to report the incident.,Traveler Assistance Desk: Terminal B.,Make sure to bring valid personal identification.
+Overbooked flight,Visit the Traveler Assistance Desk for urgent accommodation.,Help Desk: +34 900 321 654.,You may need to provide your flight details and baggage claim tag.
+"Confusion with terminal or gate,Go to the Transport Desk to resolve the issue.,""Information Point: Terminal A, near Gate 2."",Ensure you have a valid passport for security checks."
+Flight cancellation,Go to the lost and found at the airport entrance to report the incident.,Lost & Found: +34 900 765 432.,Ensure you have a valid passport for security checks.
+"Internal transport booking error,Go to the lost and found at the airport entrance to report the incident.,Customer Service: +34 900 456 789.,""If you're entitled to urgent accommodation, visit the Traveler Assistance Desk."""
+"Flight delay,Go to the Information Point at the Terminal or Airport Police.,""Security Office: Terminal A, Ground Floor."",Staff will help direct you to the correct terminal or gate."
+"Delayed baggage,Go to the Information Point at the Terminal or Airport Police.,Help Desk: +34 900 321 654.,""If you're entitled to urgent accommodation, visit the Traveler Assistance Desk."""
+Baggage claim issues,Proceed to the Customer Service Desk for immediate assistance.,Help Desk: +34 900 321 654.,Ensure you have a valid passport for security checks.
+Baggage claim issues,Immediately contact your airline's desk to rebook the flight.,Help Desk: +34 900 321 654.,Ensure you have a valid passport for security checks.
+"Internal transport booking error,Immediately contact your airline's desk to rebook the flight.,""Airline Desk: Terminal B, Gate 5."",You may be required to fill in a claim form for missing baggage."
+Check-in problems,Immediately contact your airline's desk to rebook the flight.,Police contact: +34 900 987 654.,Ensure you have a valid passport for security checks.
+Internal transport booking error,Proceed to the Customer Service Desk for immediate assistance.,Transport Desk: Terminal C.,Make sure to bring valid personal identification.
+Delayed baggage,Ask for assistance at any Information Point in the terminal.,Lost & Found: +34 900 765 432.,You may need to provide your flight details and baggage claim tag.
+"Taxi booking issues,Go to the lost and found at the airport entrance to report the incident.,""Airline Desk: Terminal B, Gate 5."",Make sure to bring valid personal identification."
+Check-in problems,Proceed to the Customer Service Desk for immediate assistance.,Police contact: +34 900 987 654.,Please provide your reservation details to adjust your booking.
+"Lost items in security,Visit the Traveler Assistance Desk for urgent accommodation.,""Security Office: Terminal A, Ground Floor."",Ensure you have a valid passport for security checks."
+Security check issues,Immediately contact your airline's desk to rebook the flight.,Call the baggage service at +34 900 123 456.,Please provide your reservation details to adjust your booking.
+"Customs clearance issues,Contact your airline's help desk for rescheduling.,""Information Point: Terminal A, near Gate 2."",Staff will help direct you to the correct terminal or gate."
+Flight rescheduling issues,Contact your airline's help desk for rescheduling.,Customer Service: +34 900 456 789.,You may be required to fill in a claim form for missing baggage.
+"Flight cancellation,Contact your airline's help desk for rescheduling.,""Information Point: Terminal A, near Gate 2."",Please provide your reservation details to adjust your booking."
+"Lost passport,Ask for assistance at any Information Point in the terminal.,""Information Point: Terminal A, near Gate 2."",You may need to provide your flight details and baggage claim tag."
+"Flight rescheduling issues,Contact your airline's help desk for rescheduling.,""Security Office: Terminal A, Ground Floor."",You can also use the airline app for immediate help."

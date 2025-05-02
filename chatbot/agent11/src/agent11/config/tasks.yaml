@@ -1,0 +1,8 @@
+task_protocol_incidencies:
+  description: >
+    Analitza el missatge de l'usuari: '{user_message}' i determina quin protocol d’incidència s'ha d'aplicar.
+    Utilitza com a referència el document 'protocols_incidencies.csv' per proporcionar una resposta clara i útil.
+  expected_output: >
+    Indicar el protocol corresponent segons el tipus d’incidència mencionada (pèrdua d’equipatge, vol perdut, documentació, etc.).
+    Si no hi ha informació disponible al document per a la situació descrita, indica-ho amablement i recomana dirigir-se a un punt d’informació.
+  agent: agent_protocols
