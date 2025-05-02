@@ -7,8 +7,40 @@ from dotenv import load_dotenv
 from crewai import LLM
 import yaml
 
-llm= LLM(model="ollama/llama3.1", base_url="http://localhost:11434", temperature=0.3)
+llm= LLM(
+    model="ollama/llama3.1", 
+    base_url="http://localhost:11434", 
+    temperature=0.3,
+    config={
+        "max_tokens": 200,
+        "top_k": 10
+    }
+    )
 
+# Configuració per a memòria externa (mem0)
+config = {
+    "vector_store": {
+        "provider": "qdrant",
+        "config": {
+            "host": "localhost",
+            "port": 6333
+        },
+    },
+    "llm": {
+        "provider": "ollama",
+        "config": {
+            "model": "llama3.1"
+        },
+    },
+    "embedder": {
+        "provider": "ollama",
+        "config": {
+            "model": "nomic-embed-text"
+        },
+    },
+}
+
+# Eina per buscar dins la carpeta knowledge
 tool = DirectorySearchTool(
     directory='knowledge/',
     config=dict(
@@ -41,13 +73,17 @@ class ChatBot():
     # tasks_config = 'config/tasks.yaml'
 
     @agent
-    def manager_agent(self) -> Agent:
+    def manager_agent(self, user_id: str) -> Agent:
         return Agent(
             config=self.agents_config['manager_agent'],
             allow_delegation=True,
             llm=llm,
-            # memòria?
-            memomry=True,
+            memory=True,
+            memory_config={
+                "provider": "mem0",
+                "config": {"user_id": user_id, "local_mem0_config": config},
+            },
+            max_iter=1,
             embedder={
                 "provider": "ollama",
                 "config": {
@@ -57,13 +93,18 @@ class ChatBot():
         )
 
     @agent
-    def qa_agent(self) -> Agent:
+    def qa_agent(self, user_id: str) -> Agent:
         return Agent(
             config=self.agents_config['qa_agent'],
             llm=llm,
             tools=[tool],
             allow_delegation=False,
             memory=True,
+            memory_config={
+                "provider": "mem0",
+                "config": {"user_id": user_id, "local_mem0_config": config},
+            },
+            max_iter=1,
             embedder={
                 "provider": "ollama",
                 "config": {
@@ -75,24 +116,30 @@ class ChatBot():
     # declarar més agents
 
     @task
-    def answer_question_task(self) -> Task:
+    def answer_question_task(self, agent_instance: Agent) -> Task:
         return Task(
             config=self.tasks_config['answer_question_task'],
-            agent=self.qa_agent()
+            #agent=self.qa_agent()
+            agent=agent_instance
         )
 
     # declarar més tasques
 
     @crew
-    def crew(self) -> Crew:
+    def crew(self, inputs: dict) -> Crew:
+        user_id = inputs.get("user_id", "default")  # si no hi és, posa default
+        qa = self.qa_agent(user_id)
+        manager = self.manager_agent(user_id)
+        task = self.answer_question_task(qa)
         return Crew(
-            agents=[self.qa_agent()],
-            tasks=[self.answer_question_task()],
+            agents=[qa],
+            tasks=[task],
             process=Process.hierarchical,
-            manager_agent=self.manager_agent(),
+            manager_agent=manager,
             #manager_llm=?
             verbose=True, 
             memory=True,
+            max_rpm=20,
             embedder={
                 "provider": "ollama",
                 "config": {
