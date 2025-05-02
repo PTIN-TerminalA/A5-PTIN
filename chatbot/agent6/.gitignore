@@ -1,0 +1,24 @@
+# Entorns virtuals
+.venv/
+venv/
+ENV/
+env/
+**/.venv/
+
+# Fitxers temporals de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Fitxers de logs, configs i variables d'entorn
+*.log
+*.env
+.env.*
+
+# Altres fitxers temporals
+*.swp
+.DS_Store
+.idea/
+.vscode/
+*.sqlite3
