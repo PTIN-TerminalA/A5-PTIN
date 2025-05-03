@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List, Dict, Tuple
-from predictiveModel import setup, RSSILocalizer, DEFAULT_RSSI
+from predictiveModel import setup
 
 app = FastAPI()
 
