@@ -1,0 +1,11 @@
+task_chat_service:
+  description: >
+    Busca en la información del aeropuerto detalles relevantes que respondan a la pregunta: '{user_message}'.
+    Teniendo como referencia el documento csv dades_serveis.csv
+  expected_output: >
+    Servicio o servicios encontrados que coincidan con la necesidad del usuario.
+    Si la información solicitada no se encuentra en el archivo, indica educadamente que no se dispone de datos al respecto.
+  agent: asistente_servicios
+
+
+
