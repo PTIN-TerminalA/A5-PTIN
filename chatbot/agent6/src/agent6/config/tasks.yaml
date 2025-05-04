@@ -7,3 +7,4 @@ control_sessio_task:
       - "sessio_id": UUID de la sessió
       - "motiu": "nova", "inactivitat", "final voluntari", "activa"
   agent: agent_control_sessio
+  input_variables: ["user_message", "session_id"]

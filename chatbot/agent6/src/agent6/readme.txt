@@ -44,4 +44,8 @@ Descarrega models amb Ollama:
     ollama pull llama3.1
     ollama pull mxbai-embed-large
 
-!!sense acabar
+
+Executar agent
+---------------
+
+uv run run_crew
