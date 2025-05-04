@@ -1,0 +1,26 @@
+transport_task:
+  description: >
+    Respon a la següent consulta de l’usuari relacionada amb desplaçaments dins l’aeroport: {user_message}
+
+    Usa exclusivament les dades dels fitxers següents:
+    - estacions.csv: per consultar la disponibilitat de vehicles en una ubicació concreta.
+    - rutes_transport.csv: per calcular rutes entre dos punts.
+
+    NO inventis dades. Si la destinació no està especificada, no facis suposicions.
+    Si només es pregunta per disponibilitat, utilitza únicament estacions.csv.
+    En cas que només es proporcioni una ubicació (sense destí), considera que és una consulta de disponibilitat. No detectis origen ni destinació. No parlis de temps ni rutes. Limita’t a consultar només les dades de estacions.csv.
+    Tingues en compte l’historial si s’ha donat: {history}
+    
+  expected_output: >
+    Dona una resposta clara, informativa i natural, tenint en compte el tipus de consulta:
+
+    - Si només es pregunta per la disponibilitat:
+      - Indica el nombre de vehicles disponibles i si l’estació està activa.
+      - Expressa-ho de manera natural (ex.: “A la Terminal A2 hi ha 1 vehicle disponible i l’estació està activa.”)
+
+    - Si es proporcionen origen i destinació:
+      - Mostra temps estimat amb vehicle i a peu.
+      - Informa sobre la disponibilitat de vehicle i recomana el mitjà més eficient.
+      - Si no hi ha vehicle disponible, suggereix com a alternativa anar a un punt proper on sí que hi hagi vehicles disponibles.
+
+  agent: transport_agent

@@ -1,0 +1,26 @@
+origen,desti,temps_vehicle,temps_peu
+Terminal A1,Terminal A2,4,10
+Terminal A1,Terminal A3,3,7
+Terminal A1,McDonald's,5,12
+Terminal A1,Terminal A4,6,14
+Terminal A2,Terminal A4,4,9
+Terminal A2,Terminal A1,4,10
+Terminal A2,Terminal A3,5,11
+Terminal A3,Louis Vuitton,3,6
+Terminal A3,Terminal A1,3,7
+Terminal A3,Terminal A2,5,11
+Terminal A3,Terminal A4,5,12
+Terminal A4,Terminal A1,6,14
+Terminal A4,Terminal A2,4,9
+Terminal A4,Terminal A3,5,12
+Nike,Addidas,3,8
+Terminal A1,Zona Vip,8,20
+Terminal A1,Chanel,7,18
+Terminal A3,Parking Central,6,15
+McDonald's,Terminal A4,7,17
+Zona d'actes,Terminal A2,6,14
+ZARA,Louis Vuitton,5,13
+Informació Central,Zona Vip,6,16
+Massimo Dutti,Terminal A4,7,18
+Starbucks,Parking Central,6,15
+Chanel,Terminal A4,8,20
