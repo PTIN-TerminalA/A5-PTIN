@@ -14,29 +14,30 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 # interpolate any tasks and agents information
 
 def run():
-    """
-    Run the crew.
-    """
+
+    history = [] 
     while True:
         # Mostra el prompt i recull l’entrada de l’usuari
-        user_input = input("You: ")
+        user_input = input("john: ")
 
         # Si l’usuari escriu alguna d’aquestes paraules, es finalitza la sessió
         if user_input.lower() in ["exit", "quit", "bye"]:
             print("Chatbot: Goodbye! It was nice talking to you.")
             break
+        
+        chat_history = "\n".join(history[-2:]) if len(history) >= 2 else ""
 
         # Prepara les dades d’entrada per al crew
         inputs = {
-            'user_message': f"{user_input}",
+            "user_message": f"{user_input}",
+             "history": f"{chat_history}",
         }
-        try:
-             # Crea una nova instància del crew i l’executa amb les dades d’entrada
-           response = Agent4().crew().kickoff(inputs=inputs)
-        except Exception as e:
-            raise Exception(f"An error occurred while running the crew: {e}")
 
-        # Mostra la resposta per pantalla
+        response = Agent4().crew().kickoff(inputs=inputs)
+
+        history.append(f"User: {user_input}")
+        history.append(f"Assistant: {response}")
+
         print(f"Assistant: {response}")
 
 

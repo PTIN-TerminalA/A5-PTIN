@@ -1,7 +1,7 @@
-answer_question_task:
+task_chat_vuelos:
   description: >
     Responde a: {user_message} .
     Este agente responde preguntas realizadas por el usuario de manera clara, útil y concisa. Utiliza el conocimiento disponible en la base de datos y adapta el tono según el tipo de pregunta.
   expected_output: >
         Respuesta completa en el idioma de la pregunta {user_message} con información adaptada de la base de datos
-  agent: qa_agent
+  agent: asistente_vuelos

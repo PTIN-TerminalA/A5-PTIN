@@ -60,7 +60,7 @@ ollama pull llama3.1
 
 Instal·lem el embbeder 
 ```bash
-ollama pull mxbai-embed-large
+ollama pull nomic-embed-text
 ```
 
 ## Executar el projecte
