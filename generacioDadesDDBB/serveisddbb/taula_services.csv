@@ -1,0 +1,31 @@
+id,name,description,location,link,ad_path,avg_price
+1,Haribo,Venda de dolços i llaminadures,A prop d’A1,https://www.haribo.com,/media/ads/haribo.jpg,1
+2,Starbucks,Cafeteria internacional,A prop d’A1,https://www.starbucks.com,/media/ads/starbucks.jpg,2
+3,Chanel,Moda i complements de luxe,A prop d’A2,https://www.chanel.com,/media/ads/chanel.jpg,3
+4,Farmàcia 1,Productes farmacèutics i de salut,A prop d’A3,https://www.farmàcia1.com,/media/ads/farmàcia_1.jpg,1
+5,Farmàcia 2,Productes farmacèutics i de salut,A prop d’A2,https://www.farmàcia2.com,/media/ads/farmàcia_2.jpg,1
+6,Levis,Botiga de roba texana,A prop d’A2,https://www.levis.com,/media/ads/levis.jpg,2
+7,Massimo Dutti,Moda elegant per home i dona,A prop d’A2,https://www.massimodutti.com,/media/ads/massimo_dutti.jpg,2
+8,Coffee Pause,Cafeteria per fer una pausa ràpida,A prop d’A1,https://www.coffeepause.com,/media/ads/coffee_pause.jpg,1
+9,Nike,Roba i calçat esportiu,A prop d’A1,https://www.nike.com,/media/ads/nike.jpg,2
+10,Sephora,Cosmètica i perfumeria,A prop d’A1,https://www.sephora.com,/media/ads/sephora.jpg,2
+11,Mc Donald's,Menjar ràpid,A prop d’A2,https://www.mcdonald's.com,/media/ads/mc_donald's.jpg,1
+12,Louis Vuitton,Moda i accessoris de luxe,A prop d’A4,https://www.louisvuitton.com,/media/ads/louis_vuitton.jpg,3
+13,Tous,Joieria i complements,A prop d’A4,https://www.tous.com,/media/ads/tous.jpg,3
+14,Lindt,Xocolates i dolços,A prop d’A4,https://www.lindt.com,/media/ads/lindt.jpg,2
+15,Zara,Moda per a tothom,A prop d’A4,https://www.zara.com,/media/ads/zara.jpg,2
+16,Adidas,Moda i sabates esportives,A prop d’A4,https://www.adidas.com,/media/ads/adidas.jpg,2
+17,H&M,Moda casual,A prop d’A2,https://www.h&m.com,/media/ads/h&m.jpg,1
+18,Sala d'actes,Espai per concerts i presentacions,A prop d’A4,,,
+19,Parking,Aparcament per a vehicles,A prop d’A3,,,
+20,VIP,Zona d'espera per a clients VIP,A prop d’A4,,,
+21,ATM 1,Caixer automàtic,A prop d’A4,,,
+22,ATM 2,Caixer automàtic,A prop d’A4,,,
+23,ATM 3,Caixer automàtic,A prop d’A1,,,
+24,Lavabo 1,Llavabos públics,A prop d’A1,,,
+25,Lavabo 2,Llavabos públics,A prop d’A1,,,
+26,Lavabo 3,Llavabos públics,A prop d’A2,,,
+27,Lavabo 4,Llavabos públics,A prop d’A4,,,
+28,Endolls cotxe elèctric,Zona per carregar vehicles elèctrics,A prop d’A4,,,
+29,Punt informació 1,Punt d'informació per a viatgers,A prop d’A4,,,
+30,Punt informació 2,Punt d'informació per a viatgers,A prop d’A1,,,
