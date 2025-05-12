@@ -1,0 +1,26 @@
+{
+  "id": "4",
+  "airline": "Ryanair",
+  "airlineImage": {
+    "uri": "https://logohistory.net/wp-content/uploads/2023/05/Ryanair-Emblem.png"
+  },
+  "flightNumber": "RY 5628",
+  "route": {
+    "origin": "BCN",
+    "originName": "Barcelona-El Prat",
+    "destination": "LHR",
+    "destinationName": "London Heathrow",
+    "departureTime": "2025-05-17T15:00:00",
+    "arrivalTime": "2025-05-17T17:45:00",
+    "terminal": "2",
+    "gate": "D13"
+  },
+  "passenger": {
+    "name": "Laura P\u00e9rez",
+    "seat": "26E",
+    "ticketNumber": "RY-4170029377"
+  },
+  "boardingTime": "2025-05-17T14:30:00",
+  "baggageAllowance": "2 \u00d7 20kg",
+  "qrCode": "boardingpass://4"
+}

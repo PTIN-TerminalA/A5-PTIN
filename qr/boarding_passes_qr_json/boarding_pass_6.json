@@ -1,0 +1,26 @@
+{
+  "id": "6",
+  "airline": "Iberia",
+  "airlineImage": {
+    "uri": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Iberia_air_logo.png/1200px-Iberia_air_logo.png"
+  },
+  "flightNumber": "LU 1328",
+  "route": {
+    "origin": "BCN",
+    "originName": "Barcelona-El Prat",
+    "destination": "LHR",
+    "destinationName": "London Heathrow",
+    "departureTime": "2025-05-29T17:00:00",
+    "arrivalTime": "2025-05-29T19:30:00",
+    "terminal": "2",
+    "gate": "A4"
+  },
+  "passenger": {
+    "name": "Luis Fern\u00e1ndez Garc\u00eda",
+    "seat": "27A",
+    "ticketNumber": "LU-6061810496"
+  },
+  "boardingTime": "2025-05-29T16:30:00",
+  "baggageAllowance": "1 \u00d7 23kg",
+  "qrCode": "boardingpass://7"
+}
