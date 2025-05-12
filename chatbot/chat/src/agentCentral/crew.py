@@ -6,8 +6,9 @@ from typing import List, Optional
 from dotenv import load_dotenv
 from crewai import LLM
 import yaml
+import os
 
-llm= LLM(model="ollama/llama3.1", base_url="http://localhost:11434", temperature=0.3)
+llm= LLM(model="ollama/gemma3:1b", base_url="http://localhost:11434", temperature=0.3)
 
 tool = DirectorySearchTool(
     directory='knowledge/',
@@ -15,7 +16,8 @@ tool = DirectorySearchTool(
         llm=dict(
             provider="ollama",
             config=dict(
-                model="llama3.1",
+                base_url="http://localhost:11434",
+                model="gemma3:1b",
                 stream=True,
             ),
         ),
@@ -30,11 +32,18 @@ tool = DirectorySearchTool(
 
 @CrewBase
 class ChatBot():
+    # Load agent and task configurations from YAML files
     def __init__(self):
-        # Load agent and task configurations from YAML files
-        with open('src/agentCentral/config/agents.yaml') as f:
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        config_dir = os.path.join(base_dir, "config")
+
+        agents_path = os.path.join(config_dir, "agents.yaml")
+        tasks_path = os.path.join(config_dir, "tasks.yaml")
+
+        with open(agents_path, "r") as f:
             self.agents_config = yaml.safe_load(f)
-        with open('src/agentCentral/config/tasks.yaml') as f:
+
+        with open(tasks_path, "r") as f:
             self.tasks_config = yaml.safe_load(f)
 
     # agents_config = 'config/agents.yaml'
@@ -47,7 +56,7 @@ class ChatBot():
             allow_delegation=True,
             llm=llm,
             # memòria?
-            memomry=True,
+            memory=True,
             embedder={
                 "provider": "ollama",
                 "config": {
