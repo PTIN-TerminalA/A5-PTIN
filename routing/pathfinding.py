@@ -1,52 +1,100 @@
-from PIL import Image
-import numpy as np
+import heapq, json
+from collections import deque
+from typing import List, Tuple, Optional, Dict
 
-class GridMap:
-    def __init__(self, grid: np.ndarray, scale: int):
-        self.grid = grid
-        self.scale = scale  # Quantitat de píxels per casella
-        self.height, self.width = grid.shape
+class PathFinding:
+    def __init__(self, gridMap):
+        self.map = gridMap
 
-    def isFree(self, x: int, y: int) -> bool:
-        return self.grid[x][y] == 0
+    def getNeighbors(self, node: Tuple[int, int]) -> List[Tuple[int, int]]:
+        x, y = node
+        neighbors = []
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < self.map.height and 0 <= ny < self.map.width and self.map.isFree(nx, ny):
+                neighbors.append((nx, ny))
+        return neighbors
 
-    def printGrid(self):
-        for row in self.grid:
-            for value in row:
-                print(value, end='')
-            print()
+    def reconstructPath(self, predecessors: Dict[Tuple[int, int], Tuple[int, int]], current: Tuple[int, int]) -> List[Tuple[int, int]]:
+        path = [current]
+        while current in predecessors:
+            current = predecessors[current]
+            path.append(current)
+        path.reverse()
+        return path
 
-    def printASCII(self):
-        characters = {0: '.', 1: '#'}
-        for row in self.grid:
-            print(''.join(characters[value] for value in row))
+    def savePathToJSON(self, path: List[Tuple[int, int]], filename: str) -> None:
+        '''
+        invertedPath = [(y, x) for (x, y) in path]
+        
+        with open(filename, 'w') as f:
+            json.dump(invertedPath, f, indent=2)
+        '''
+        '''
+        with open(filename, 'w') as f:
+            json.dump(path, f, indent=2)
+        '''
+        maxX = max(self.map.height - 1, 1)
+        maxY = max(self.map.width - 1, 1)
 
-def imageToMatrixResize(image_path: str, mida=(636, 429)) -> GridMap:
-    img = Image.open(image_path).convert('L')
-    img = img.resize(mida, Image.Resampling.LANCZOS)
+        normalizedPath = [
+            (y / maxY, x / maxX) for (x, y) in path
+        ]
+        with open(filename, 'w') as f:
+            json.dump(normalizedPath, f, indent=2)
 
-    mtx = np.array(img)
-    threshold = 254
-    binaryMTX = (mtx < threshold).astype(np.uint8)
+class AStar(PathFinding):
+    def heuristic(self, a: Tuple[int, int], b: Tuple[int, int]) -> int:
+        return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
-    scaleX = 2542 // mida[0]
-    scaleY = 1715 // mida[1]
+    def findPath(self, start: Tuple[int, int], goal: Tuple[int, int]) -> Optional[List[Tuple[int, int]]]:
+        if start == goal:
+            return [start]
 
-    scale = min(scaleX, scaleY)
+        queue = []
+        heapq.heappush(queue, (self.heuristic(start, goal), 0, start))
 
-    return GridMap(binaryMTX, scale)
+        predecessors: Dict[Tuple[int, int], Tuple[int, int]] = {}
+        cost: Dict[Tuple[int, int], int] = {start: 0}
 
-def imageToMatrix(image_path: str) -> GridMap:
-    img = Image.open(image_path).convert('L')
+        while queue:
+            _, current_cost, current = heapq.heappop(queue)
 
-    mtx = np.array(img)
-    threshold = 254
-    binaryMTX = (mtx < threshold).astype(np.uint8)
+            if current == goal:
+                return self.reconstructPath(predecessors, current)
 
-    return GridMap(binaryMTX, 1)
-    
-#if __name__ == '__main__':
-    #gridMap = imageToMatrixResize('NeoTerminalA.png')
-    #gridMap = imageToMatrix('TerminalAv3.png')
-    #gridMap.printASCII()
-    #gridMap.printGrid()
+            for neighbor in self.getNeighbors(current):
+                nouCost = current_cost + 1
+                if neighbor in cost and nouCost >= cost[neighbor]:
+                    continue
+                predecessors[neighbor] = current
+                cost[neighbor] = nouCost
+                heuristicValue = nouCost + self.heuristic(neighbor, goal)
+                heapq.heappush(queue, (heuristicValue, nouCost, neighbor))
+
+        return None
+
+class MultiTargetPathFinding(PathFinding):
+    def findPath(self, start: Tuple[int, int], targets: List[Tuple[int, int]]) -> Optional[Tuple[Tuple[int, int], List[Tuple[int, int]]]]:
+        if start in targets:
+            return (start, [start])
+
+        targetSet = set(targets)
+        visited = [[False for _ in range(self.map.width)] for _ in range(self.map.height)]
+        queue = deque([start])
+        predecessors: Dict[Tuple[int, int], Tuple[int, int]] = {}
+        visited[start[0]][start[1]] = True
+
+        while queue:
+            current = queue.popleft()
+            if current in targetSet:
+                path = self.reconstructPath(predecessors, current)
+                return (current, path)
+            for neighbor in self.getNeighbors(current):
+                x, y = neighbor
+                if not visited[x][y]:
+                    visited[x][y] = True
+                    predecessors[neighbor] = current
+                    queue.append(neighbor)
+        return None

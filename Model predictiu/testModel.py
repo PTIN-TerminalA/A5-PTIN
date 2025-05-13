@@ -15,8 +15,7 @@ mesura = test_data["measure"]
 # Predict coordinates
 x, y = ia.triangula(mesura)
 
-print("Expected coordinates: x= 0.4379, y =  0.2564")
-print(f"Predicted coordinates: x = {x:.4f}, y = {y:.4f}")
+print("Expected coordinates: x= 0.43792207792207793, y =  0.2564874012786762")
+print(f"Predicted coordinates: x = {x}, y = {y}")
 
-marcar_punto_normalizado("MapaTerminalA.png", x, y) 
-
+#marcar_punto_normalizado("MapaTerminalA.png", x, y) 

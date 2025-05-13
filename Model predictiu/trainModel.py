@@ -40,7 +40,8 @@ def load_data(json_dir: str):
 
 def train_model(X: np.ndarray, y: np.ndarray):
     X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
-    model = RandomForestRegressor(n_estimators=100, random_state=42)
+    model = RandomForestRegressor(n_estimators=150, random_state=12)
+    #model = RandomForestRegressor(n_estimators=150, random_state=12)
     model.fit(X_train, y_train)
 
     y_pred = model.predict(X_val)
