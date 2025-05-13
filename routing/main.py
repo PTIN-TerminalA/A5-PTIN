@@ -5,6 +5,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 #from astarCython import PathFinding
 
+def normalizeCoord(xNorm: float, yNorm: float, height: int, width: int) -> tuple[int, int]:
+    j = int(round(xNorm * (width - 1)))      
+    i = int(round((1 - yNorm) * (height - 1)))  
+    return (i, j) 
+
 def main():
     manual_grid = np.array([
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -32,9 +37,22 @@ def main():
     #gridMap = GridMap(manual_grid, scale=1)
     #gridMap.printASCII()
     gridMap = imageToMatrix('MapTerminalA.jpg')  # tu archivo de imagen
+    print(gridMap.height)
+    print(gridMap.width)
+    
 
+    #exemple no funcional
     start = (339, 347)
-    targets = [(347, 90), (342, 680), (338, 1025)]
+
+    xNorm, yNorm = start
+
+    startNorm = normalizeCoord(xNorm, yNorm, gridMap.height, gridMap.width)
+    
+    # exemple no funcional
+    targets = [(0.347, 0.90), (0.342, 0.680), (0.338, 0.1025)]
+
+    normTargets = [normalizeCoord(x, y, gridMap.height, gridMap.width) for (x, y) in targets]
+
     #goal = (702, 1335)
     #x, y = goal
     pf = MultiTargetPathFinding(gridMap)
