@@ -1,0 +1,50 @@
+ID: 1 | Nombre: Haribo | Descripción: Venda de dolços i llaminadures | Precio: 1 | Ubicación: (0.3842, 0.1425) | Estado:  | Oferta: None | Etiquetas: dolços | Horarios: 07:00-21:00, 07:00-23:00, 08:00-22:00, 09:00-20:00, 09:00-23:00
+ID: 2 | Nombre: Starbucks | Descripción: Cafeteria internacional | Precio: 3 | Ubicación: (0.4148, 0.1425) | Estado:  | Oferta: None | Etiquetas: cafeteria | Horarios: 07:00-21:00, 07:00-20:00, 08:00-22:00, 08:00-21:00, 09:00-20:00, 09:00-22:00
+ID: 3 | Nombre: Chanel | Descripción: Botiga de luxe de cosmètics i moda | Precio: 1 | Ubicación: (0.5805, 0.1425) | Estado:  | Oferta: None | Etiquetas: cosmètica, moda | Horarios: 07:00-21:00, 08:00-22:00, 08:00-20:00, 09:00-21:00, 10:00-14:00
+ID: 4 | Nombre: Farmàcia 1 | Descripción: Farmàcia amb servei 24h | Precio: 1 | Ubicación: (0.6460, 0.1425) | Estado:  | Oferta: None | Etiquetas: farmàcia, servei | Horarios: 00:00-23:59
+ID: 6 | Nombre: Levis | Descripción: Botiga de roba texana | Precio: 3 | Ubicación: (0.7255, 0.1425) | Estado:  | Oferta: None | Etiquetas: moda | Horarios: 07:00-20:00, 08:00-22:00, 09:00-20:00, 09:00-21:00
+ID: 7 | Nombre: Massimo Dutti | Descripción: Botiga de moda elegant | Precio: 3 | Ubicación: (0.5974, 0.1658) | Estado:  | Oferta: None | Etiquetas: moda | Horarios: 08:00-21:00, 09:00-22:00, 09:00-21:00, 09:00-23:00
+ID: 8 | Nombre: Coffee Pause | Descripción: Petita cafeteria | Precio: 1 | Ubicación: (0.4044, 0.1658) | Estado:  | Oferta: None | Etiquetas: cafeteria | Horarios: 07:00-23:00, 07:00-21:00, 08:00-23:00, 08:00-22:00, 09:00-23:00, 09:00-14:00, 09:00-22:00
+ID: 9 | Nombre: Nike | Descripción: Botiga d'esport i roba esportiva | Precio: 1 | Ubicación: (0.3351, 0.1658) | Estado:  | Oferta: None | Etiquetas: esport, moda | Horarios: 07:00-22:00, 08:00-20:00, 09:00-21:00, 09:00-23:00, 09:00-20:00
+ID: 10 | Nombre: Sephora | Descripción: Perfumeria i cosmètics | Precio: 1 | Ubicación: (0.2712, 0.1658) | Estado:  | Oferta: None | Etiquetas: cosmètica | Horarios: 07:00-23:00, 08:00-22:00, 08:00-23:00, 09:00-20:00, 09:00-21:00, 10:00-15:00
+ID: 11 | Nombre: Mc Donald's | Descripción: Restaurant de menjar ràpid | Precio: 3 | Ubicación: (0.7956, 0.5734) | Estado:  | Oferta: None | Etiquetas: menjar ràpid | Horarios: 07:00-22:00, 08:00-20:00, 08:00-21:00, 08:00-22:00, 09:00-20:00, 09:00-22:00, 10:00-14:00
+ID: 13 | Nombre: Tous | Descripción: Joieria i accessoris | Precio: 2 | Ubicación: (0.5875, 0.7696) | Estado:  | Oferta: None | Etiquetas: cosmètica, moda | Horarios: 07:00-20:00, 07:00-23:00, 08:00-21:00, 08:00-22:00, 09:00-20:00
+ID: 14 | Nombre: Lindt | Descripción: Xocolateria | Precio: 3 | Ubicación: (0.8790, 0.4846) | Estado:  | Oferta: None | Etiquetas: dolços | Horarios: 07:00-23:00, 08:00-21:00, 08:00-22:00, 09:00-20:00, 09:00-21:00, 09:00-23:00
+ID: 16 | Nombre: Adidas | Descripción: Botiga d'esport i roba esportiva | Precio: 2 | Ubicación: (0.8688, 0.4800) | Estado:  | Oferta: None | Etiquetas: esport, moda | Horarios: 08:00-20:00, 08:00-21:00, 08:00-22:00, 09:00-23:00, 09:00-21:00
+ID: 17 | Nombre: H&M | Descripción: Botiga de moda | Precio: 2 | Ubicación: (0.8673, 0.3947) | Estado:  | Oferta: None | Etiquetas: moda | Horarios: 08:00-22:00, 08:00-23:00, 09:00-20:00, 09:00-22:00, 10:00-14:00
+ID: 18 | Nombre: Sala d'actes | Descripción: Espai per a esdeveniments | Precio: 3 | Ubicación: (0.5088, 0.4940) | Estado:  | Oferta: None | Etiquetas: oci | Horarios: 07:00-23:00, 08:00-20:00, 09:00-23:00, 09:00-22:00, 10:00-14:00
+ID: 19 | Nombre: Parking | Descripción: Aparcament de vehicles | Precio: 1 | Ubicación: (0.1177, 0.3387) | Estado:  | Oferta: None | Etiquetas: mobilitat | Horarios: 00:00-23:59
+ID: 21 | Nombre: ATM 1 | Descripción: Caixer automàtic | Precio: 1 | Ubicación: (0.0787, 0.3176) | Estado:  | Oferta: None | Etiquetas: servei | Horarios: 00:00-23:59
+ID: 22 | Nombre: ATM 2 | Descripción: Caixer automàtic | Precio: 3 | Ubicación: (0.8190, 0.5851) | Estado:  | Oferta: None | Etiquetas: servei | Horarios: 00:00-23:59
+ID: 24 | Nombre: Lavabo 1 | Descripción: Servei de lavabos | Precio: 3 | Ubicación: (0.1200, 0.2277) | Estado:  | Oferta: None | Etiquetas: servei | Horarios: 00:00-23:59
+ID: 25 | Nombre: Lavabo 2 | Descripción: Servei de lavabos | Precio: 1 | Ubicación: (0.4862, 0.1413) | Estado:  | Oferta: None | Etiquetas: servei | Horarios: 00:00-23:59
+ID: 26 | Nombre: Lavabo 3 | Descripción: Servei de lavabos | Precio: 2 | Ubicación: (0.8665, 0.2301) | Estado:  | Oferta: None | Etiquetas: servei | Horarios: 00:00-23:59
+ID: 27 | Nombre: Lavabo 4 | Descripción: Servei de lavabos | Precio: 1 | Ubicación: (0.0000, 0.0000) | Estado:  | Oferta: None | Etiquetas: servei | Horarios: 00:00-23:59
+ID: 28 | Nombre: Zona d'endolls per cotxes elèctrics | Descripción: Punts de càrrega per a vehicles elèctrics | Precio: 1 | Ubicación: (0.5205, 0.8233) | Estado:  | Oferta: None | Etiquetas: mobilitat | Horarios: 07:00-22:00, 07:00-21:00, 07:00-23:00, 08:00-21:00, 09:00-22:00
+ID: 29 | Nombre: Punt d'informació 1 | Descripción: Punt d'atenció al client | Precio: 2 | Ubicación: (0.1177, 0.3387) | Estado:  | Oferta: None | Etiquetas: servei | Horarios: 07:00-22:00, 08:00-23:00, 08:00-22:00, 08:00-20:00, 09:00-22:00, 10:00-14:00
+ID: 30 | Nombre: Punt d'informació 2 | Descripción: Punt d'atenció al client | Precio: 1 | Ubicación: (0.0000, 0.0000) | Estado:  | Oferta: None | Etiquetas: servei | Horarios: 07:00-21:00, 07:00-22:00, 08:00-22:00, 09:00-20:00, 09:00-21:00
+ID: 32 | Nombre: Porta A1 | Descripción: Porta d'embarcament A1 | Precio: 1 | Ubicación: (0.1036, 0.1355) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 33 | Nombre: Porta A2 | Descripción: Porta d'embarcament A2 | Precio: 1 | Ubicación: (0.8797, 0.1380) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 34 | Nombre: Porta A3 | Descripción: Porta d'embarcament A3 | Precio: 1 | Ubicación: (0.2026, 0.7415) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 35 | Nombre: Porta A4 | Descripción: Porta d'embarcament A4 | Precio: 1 | Ubicación: (0.6101, 0.8233) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 36 | Nombre: Enrique Tomas | Descripción: Bar especialitzat en pernil | Precio: 1 | Ubicación: (0.8672, 0.5033) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 37 | Nombre: Facturar Maletes 1 | Descripción: Zona de facturació de maletes | Precio: 1 | Ubicación: (0.0499, 0.3188) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 38 | Nombre: Facturar Maletes 2 | Descripción: Zona de facturació de maletes | Precio: 1 | Ubicación: (0.2977, 0.8805) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 39 | Nombre: Facturar Maletes 3 | Descripción: Zona de facturació de maletes | Precio: 1 | Ubicación: (0.8774, 0.3200) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 40 | Nombre: Recollida bus i taxi | Descripción: Zona de recollida per a busos i taxis | Precio: 1 | Ubicación: (0.2151, 0.7030) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 41 | Nombre: Policia | Descripción: Estació de policia | Precio: 1 | Ubicación: (0.7091, 0.1647) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 42 | Nombre: Billets1 | Descripción: Taquilla per a comprar billets d'aviò | Precio: 1 | Ubicación: (0.0987, 0.3398) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 43 | Nombre: Billets2 | Descripción: Taquilla per a comprar billets d'aviò | Precio: 1 | Ubicación: (0.4169, 0.8828) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 44 | Nombre: Escales1 | Descripción: Escales per a canviar de pis | Precio: 1 | Ubicación: (0.1216, 0.1692) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 45 | Nombre: Escales2 | Descripción: Escales per a canviar de pis | Precio: 1 | Ubicación: (0.2003, 0.8186) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 46 | Nombre: Escales3 | Descripción: Escales per a canviar de pis | Precio: 1 | Ubicación: (0.2151, 0.7030) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 47 | Nombre: Escales4 | Descripción: Escales per a canviar de pis | Precio: 1 | Ubicación: (0.5057, 0.6575) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 48 | Nombre: Escales5 | Descripción: Escales per a canviar de pis | Precio: 1 | Ubicación: (0.6094, 0.8070) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 49 | Nombre: Escales6 | Descripción: Escales per a canviar de pis | Precio: 1 | Ubicación: (0.8657, 0.1693) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 51 | Nombre: Seguretat 1 | Descripción: Zona de seguretat per clients | Precio: 1 | Ubicación: (0.1161, 0.1179) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 52 | Nombre: Seguretat 2 | Descripción: Zona de seguretat per clients | Precio: 1 | Ubicación: (0.2018, 0.8910) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 53 | Nombre: Seguretat 3 | Descripción: Zona de seguretat per clients | Precio: 1 | Ubicación: (0.8610, 0.1156) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 54 | Nombre: Sortida 1 | Descripción: Porta de sortida del terminal | Precio: 1 | Ubicación: (0.0265, 0.3258) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 55 | Nombre: Sortida 2 | Descripción: Porta de sortida del terminal | Precio: 1 | Ubicación: (0.2221, 0.9389) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 56 | Nombre: Sortida 3 | Descripción: Porta de sortida del terminal | Precio: 1 | Ubicación: (0.4901, 0.9377) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
+ID: 57 | Nombre: Sortida 4 | Descripción: Porta de sortida del terminal | Precio: 1 | Ubicación: (0.9636, 0.5979) | Estado: open | Oferta: None | Etiquetas: None | Horarios: None
