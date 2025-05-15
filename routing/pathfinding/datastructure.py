@@ -8,7 +8,18 @@ class GridMap:
         self.height, self.width = grid.shape
 
     def isFree(self, x: int, y: int) -> bool:
-        return self.grid[x][y] == 0
+        #return self.grid[x][y] == 0
+        radius = (11 - 1) // 2
+
+        for dx in range(-radius, radius + 1):
+            for dy in range(-radius, radius + 1):
+                nx, ny = x + dx, y + dy
+                if 0 <= nx < self.height and 0 <= ny < self.width:
+                    if self.grid[nx][ny] == 1:
+                        return False
+                else:
+                    return False
+        return True
 
     def printASCII(self):
         '''
