@@ -14,7 +14,7 @@ class PointRequest(BaseModel):
     goal: Tuple[float, float]
 
 def normalizeCoord(xNorm: float, yNorm: float, height: int, width: int) -> Tuple[int, int]:
-    j = int(round((width - 1) * (1 - xNorm)))
+    j = int(round((width - 1) * xNorm))
     i = int(round((height - 1) * (1 - yNorm)))
     return (i, j) 
 
@@ -46,7 +46,7 @@ def getPath(data: PointRequest):
     maxY = max(gridMap.width - 1, 1)
 
     normalizedPath = [
-        (1 - (y / maxY), 1 - (x / maxX)) for (x, y) in path
+        ((y / maxY), 1 - (x / maxX)) for (x, y) in path
     ]
 
     return {"length": len(path), "path": normalizedPath}
