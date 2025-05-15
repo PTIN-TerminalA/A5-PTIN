@@ -8,7 +8,7 @@ import mysql.connector
 from dotenv import load_dotenv
 import os
 from pathlib import Path
-from crewai.knowledge.source.text_file_knowledge_source import TextFileKnowledgeSource
+import csv
 
 dotenv_path = Path('./src/agent3/') / '.env'
 load_dotenv(dotenv_path=dotenv_path)
@@ -25,7 +25,7 @@ config = {
         "provider": "qdrant",
         "config": {
             "collection_name": "agent3",
-            "host": "localhost",
+            "host": "10.60.0.3",
             "port": 6333,
             "embedding_model_dims": 768,  # Change this according to your local model's dimensions
         },
@@ -33,10 +33,10 @@ config = {
     "llm": {
         "provider": "ollama",
         "config": {
-            "model": "llama3.1:latest",
+            "model": "llama3.2:latest",
             "temperature": 0,
             "max_tokens": 2000,
-            "ollama_base_url": "http://localhost:11434",  # Ensure this URL is correct
+            "ollama_base_url": "http://10.60.0.3:11434",  # Ensure this URL is correct
         },
     },
     "embedder": {
@@ -44,7 +44,7 @@ config = {
         "config": {
             "model": "nomic-embed-text:latest",
             # Alternatively, you can use "snowflake-arctic-embed:latest"
-            "ollama_base_url": "http://localhost:11434",
+            "ollama_base_url": "http://10.60.0.3:11434",
         },
     },
 }
@@ -56,8 +56,8 @@ config = {
 
 # Instància del model LLM que s’utilitzarà per als agents
 llm = LLM(
-    model="ollama/llama3.1",  # Versión más ligera
-    base_url="http://localhost:11434",
+    model="ollama/llama3.2",  # Versión más ligera
+    base_url="http://10.60.0.3:11434",
     temperature=0.3,
     config={
         "max_tokens": 200,  # Limita respuesta
@@ -80,9 +80,6 @@ def obtener_datos():
                         s.name,
                         s.description,
                         s.avg_price,
-                        s.location_x,
-                        s.location_y,
-                        s.status,
                         s.offer,
                         GROUP_CONCAT(DISTINCT st.tag_name ORDER BY st.tag_name SEPARATOR ', ') AS tags,
                         GROUP_CONCAT(
@@ -100,38 +97,46 @@ def obtener_datos():
                         LEFT JOIN 
                         schedule sch ON s.id = sch.service_id
                         GROUP BY 
-                        s.id, s.name, s.description, s.avg_price, s.location_x, s.location_y, s.status, s.offer
+                        s.id, s.name, s.description, s.avg_price, s.offer
                         ORDER BY 
                         s.id; """)
     resultados = cursor.fetchall()
+    columnas = [i[0] for i in cursor.description]  # Obtener nombres de columnas
     conn.close()
-    return resultados
+    return resultados, columnas
 
-datos = obtener_datos()
+datos, columnas = obtener_datos()
 
-contenido = "\n".join([
-    f"ID: {fila[0]} | Nombre: {fila[1]} | Descripción: {fila[2]} | "
-    f"Precio: {fila[3]} | Ubicación: ({fila[4]}, {fila[5]}) | "
-    f"Estado: {fila[6]} | Oferta: {fila[7]} | "
-    f"Etiquetas: {fila[8]} | Horarios: {fila[9]}"
-    for fila in datos
-])
+# Guardar en archivo CSV
+csv_filename = './knowledge/servicios.csv'
+with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
+    writer = csv.writer(csvfile)
+    
+    # Escribir encabezados
+    writer.writerow(columnas)
+    
+    # Escribir datos
+    writer.writerows(datos)
 
-# Opcional: guardar en un archivo
-with open('./src/agent3/knowledge/servicios.txt', 'w', encoding='utf-8') as f:
-    f.write(contenido)
+csv_filename = './src/agent3/knowledge/servicios.csv'
+with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
+    writer = csv.writer(csvfile)
+    
+    # Escribir encabezados
+    writer.writerow(columnas)
+    
+    # Escribir datos
+    writer.writerows(datos)
 
-with open('./knowledge/servicios.txt', 'w', encoding='utf-8') as f:
-    f.write(contenido)
 
-# string_source = StringKnowledgeSource(
-#     content=contenido,
-#     chunk_size=300,      # Maximum size of each chunk (default: 4000)
-#     chunk_overlap=20
-# )
 
-text_source = TextFileKnowledgeSource(
-    file_paths=['servicios.txt'],
+print(f"Datos guardados en {csv_filename}")
+
+
+
+
+csv_source = CSVKnowledgeSource(
+    file_paths=['servicios.csv'],
     chunk_size=300,      # Maximum size of each chunk (default: 4000)
     chunk_overlap=20
 )
@@ -168,7 +173,7 @@ class Agent3():
             memory=True,
             memory_config={
                 "provider": "mem0",
-                "config": {"user_id": "john", 'local_mem0_config': config},
+                "config": {"user_id": '{user_id}', 'local_mem0_config': config},
             },
             allow_delegation=False, # No permet delegar tasques a altres agents
             max_iter=1,
@@ -186,9 +191,9 @@ class Agent3():
 
                             Responde al mensaje del usuario: {user_message} """,
             expected_output = """Tu respuesta debe ser relevante, precisa y clara, abordando directamente la consulta del usuario o continuando la conversación de manera lógica.
-            Además, **debes incluir la siguiente información sobre el establecimiento** en caso de que aplique:
+            con el formato:
             - Nombre del establecimiento
-            - Ubicación exacta
+            - Descripcion
             - Rango de precio (si aplica)
             - Horarios
             También puedes añadir detalles adicionales útiles para el usuario, como tipo de comida, servicios disponibles o recomendaciones.""",
@@ -207,8 +212,8 @@ class Agent3():
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,  # Mejor que sequential
             max_rpm=20, # Les tasques s’executen una darrere l’altra
-            #verbose=True,  # Mostra informació detallada de l’execucio 
-            knowledge_sources=[text_source],
+            verbose=True,  # Mostra informació detallada de l’execucio 
+            knowledge_sources=[csv_source],
             embedder=EMBEDDER_CONFIG,
               
         )
