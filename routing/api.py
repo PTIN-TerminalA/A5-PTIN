@@ -45,8 +45,20 @@ def getPath(data: PointRequest):
     maxX = max(gridMap.height - 1, 1)
     maxY = max(gridMap.width - 1, 1)
 
+    simplifiedPath: List[Tuple[float, float]] = []
+    prevPath: Tuple[float, float] = (None, None)
+
+    for x, y in path:
+        pt = (round(y / maxY, 4), round((1 - (x / maxX)), 4))
+
+        if pt != prevPath:
+            simplifiedPath.append(pt)
+            prevPath = pt
+
+    '''
     normalizedPath = [
         ((y / maxY), 1 - (x / maxX)) for (x, y) in path
     ]
+    '''
 
-    return {"length": len(path), "path": normalizedPath}
+    return {"length": len(simplifiedPath), "path": simplifiedPath}
