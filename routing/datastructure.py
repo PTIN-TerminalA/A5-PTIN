@@ -7,6 +7,7 @@ class GridMap:
         self.scale = scale  # Quantitat de píxels per casella
         self.height, self.width = grid.shape
         self.footprint = footprint
+        self.half = footprint // 2
 
         self.sat = np.zeros((self.height + 1, self.width + 1), dtype=np.int32)
         self.sat[1:, 1:] = np.cumsum(np.cumsum(self.grid, axis=0), axis=1)
@@ -15,11 +16,15 @@ class GridMap:
         #return self.grid[x][y] == 0
 
         f = self.footprint
-        if x < 0 or y < 0 or x + f > self.height or y + f > self.width:
+        h = self.half
+
+        x0, y0 = cx - h, cy - h
+        x1, y1 = x0 + f,   y0 + f
+
+        if x0 < 0 or y0 < 0 or x1 > self.height or y1 > self.width:
             return False
 
-        sum == 0
-        return self.areaSum(x, y, x + f, y + f) == 0
+        return (self.sat[x1, y1] - self.sat[x0, y1] - self.sat[x1, y0] + self.sat[x0, y0]) == 0
 
     def printASCII(self):
         for row in self.grid:
@@ -28,9 +33,9 @@ class GridMap:
     def areaSum(self, x0: int, y0: int, x1: int, y1: int) -> int:
         return (
             self.sat[x1, y1]
-            - self.sat[x0, y1]
-            - self.sat[x1, y0]
-            + self.sat[x0, y0]
+        - self.sat[x0, y1]
+        - self.sat[x1, y0]
+        + self.sat[x0, y0]
         )
 
     def drawPoint(self, x: int, y: int, color: tuple = (255, 0, 0), radius: int = 1):
