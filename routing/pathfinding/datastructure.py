@@ -29,16 +29,7 @@ class GridMap:
         '''
         for row in self.grid:
             print(' '.join(str(value) for value in row))
-
-    def drawPoint(self, x: int, y: int, color: tuple = (255, 0, 0), radius: int = 1):
-        # Convert grid to an image to draw points
-        img = Image.fromarray(self.grid * 255)  # Scaling 0->255 for visualization
-        img = img.convert("RGB")  # Convert to RGB mode
-        draw = ImageDraw.Draw(img)
-        # Draw a colored circle at the coordinates (x, y)
-        draw.ellipse([x-radius, y-radius, x+radius, y+radius], fill=color)
-        img.show()  # Show the image with the point
-
+            
 def imageToMatrix(image_path: str) -> GridMap:
     img = Image.open(image_path).convert('L')
 

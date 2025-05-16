@@ -29,7 +29,7 @@ class PathFinding:
         maxY = max(self.map.width - 1, 1)
 
         normalizedPath = [
-            (1 - (y / maxY), 1 - (x / maxX)) for (x, y) in path
+            ((y / maxY), 1 - (x / maxX)) for (x, y) in path
         ]
         with open(filename, 'w') as f:
             json.dump(normalizedPath, f, indent=1)

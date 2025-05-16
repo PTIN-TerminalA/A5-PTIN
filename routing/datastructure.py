@@ -2,22 +2,36 @@ from PIL import Image, ImageDraw
 import numpy as np
 
 class GridMap:
-    def __init__(self, grid: np.ndarray, scale: int):
+    def __init__(self, grid: np.ndarray, scale: int, footprint: int):
         self.grid = grid
         self.scale = scale  # Quantitat de píxels per casella
         self.height, self.width = grid.shape
+        self.footprint = footprint
+
+        self.sat = np.zeros((self.height + 1, self.width + 1), dtype=np.int32)
+        self.sat[1:, 1:] = np.cumsum(np.cumsum(self.grid, axis=0), axis=1)
 
     def isFree(self, x: int, y: int) -> bool:
-        return self.grid[x][y] == 0
+        #return self.grid[x][y] == 0
+
+        f = self.footprint
+        if x < 0 or y < 0 or x + f > self.height or y + f > self.width:
+            return False
+
+        sum == 0
+        return self.areaSum(x, y, x + f, y + f) == 0
 
     def printASCII(self):
-        '''
-        characters = {0: '.', 1: '#'}
-        for row in self.grid:
-            print(''.join(characters[value] for value in row))
-        '''
         for row in self.grid:
             print(' '.join(str(value) for value in row))
+
+    def areaSum(self, x0: int, y0: int, x1: int, y1: int) -> int:
+        return (
+            self.sat[x1, y1]
+            - self.sat[x0, y1]
+            - self.sat[x1, y0]
+            + self.sat[x0, y0]
+        )
 
     def drawPoint(self, x: int, y: int, color: tuple = (255, 0, 0), radius: int = 1):
         # Convert grid to an image to draw points
@@ -35,16 +49,6 @@ def imageToMatrix(image_path: str) -> GridMap:
     threshold = 254
     binaryMTX = (mtx < threshold).astype(np.uint8)
 
-    return GridMap(binaryMTX, 1)
-   
-if __name__ == '__main__':
-    gridMap = imageToMatrix('MapTerminalA.jpg')
-    #print(f"Value position: {gridMap.grid[144][193]}")
-    gridMap.printASCII()
+    return GridMap(binaryMTX, 1, 15)
 
-    #start = (144, 193)
-    #goal = (416, 120)
-
-    #gridMap.drawPoint(*start, color=(0, 255, 0))  # Green start point
-    #gridMap.drawPoint(*goal, color=(0, 0, 255))   # Blue goal point
     

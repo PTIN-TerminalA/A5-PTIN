@@ -36,37 +36,32 @@ def main():
     
     #gridMap = GridMap(manual_grid, scale=1)
     #gridMap.printASCII()
-    gridMap = imageToMatrix('MapTerminalA.jpg')  # tu archivo de imagen
-    print(gridMap.height)
-    print(gridMap.width)
-    
+    gridMap = imageToMatrix('TerminalA.jpg')  # tu archivo de imagen
 
     #exemple no funcional
-    start = (339, 347)
+    start = (0, 0)
 
     xNorm, yNorm = start
 
     startNorm = normalizeCoord(xNorm, yNorm, gridMap.height, gridMap.width)
     
     # exemple no funcional
-    targets = [(0.347, 0.90), (0.342, 0.680), (0.338, 0.1025)]
+    #targets = [(0.347, 0.90), (0.342, 0.680), (0.338, 0.1025)]
 
-    normTargets = [normalizeCoord(x, y, gridMap.height, gridMap.width) for (x, y) in targets]
+    #normTargets = [normalizeCoord(x, y, gridMap.height, gridMap.width) for (x, y) in targets]
 
-    #goal = (702, 1335)
-    #x, y = goal
-    pf = MultiTargetPathFinding(gridMap)
-    res = pf.findPath(start, targets)
+    goal = (1, 1)
+    xGoal, yGoal = goal
+
+    goalNorm = normalizeCoord(xGoal, yGoal, gridMap.height, gridMap.width)
+    #pf = MultiTargetPathFinding(gridMap)
+    #res = pf.findPath(start, targets)
     #pf = JumpPointSearch(gridMap, start, goal)
     #path = pf.search()
-    #pf = AStar(gridMap)
+    pf = AStar(gridMap)
     #pf = PathFinding(gridMap, start, goal)
-    #path = pf.findPath(start, goal)
+    path = pf.findPath(start, goal)
     #path = pf.search()
-    if res:
-        point, path = res
-        pf.savePathToJSON(path, 'path.json')
-        print(point)
 
     '''
     # Visualización
