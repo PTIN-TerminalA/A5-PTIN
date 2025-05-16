@@ -39,7 +39,7 @@ def main():
     gridMap = imageToMatrix('TerminalA.jpg')  # tu archivo de imagen
 
     #exemple no funcional
-    start = (0, 0)
+    start = (0.15, 0.15)
 
     xNorm, yNorm = start
 
@@ -50,7 +50,7 @@ def main():
 
     #normTargets = [normalizeCoord(x, y, gridMap.height, gridMap.width) for (x, y) in targets]
 
-    goal = (1, 1)
+    goal = (0.95, 0.95)
     xGoal, yGoal = goal
 
     goalNorm = normalizeCoord(xGoal, yGoal, gridMap.height, gridMap.width)

@@ -1,7 +1,7 @@
+import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Tuple, List
-
 from datastructure import imageToMatrix
 from pathfinding import AStar
 
@@ -44,7 +44,10 @@ def getPath(data: PointRequest):
 
     maxX = max(gridMap.height - 1, 1)
     maxY = max(gridMap.width - 1, 1)
-
+    
+    wayPoints: List[Tuple[float, float]] = []
+    prevDir: Tuple[int, int] = (0, 0)
+    '''
     simplifiedPath: List[Tuple[float, float]] = []
     prevPath: Tuple[float, float] = (None, None)
 
@@ -54,11 +57,25 @@ def getPath(data: PointRequest):
         if pt != prevPath:
             simplifiedPath.append(pt)
             prevPath = pt
-
     '''
-    normalizedPath = [
-        ((y / maxY), 1 - (x / maxX)) for (x, y) in path
-    ]
-    '''
+    for i in range(len(path)):
+        x, y = path[i]
 
-    return {"length": len(simplifiedPath), "path": simplifiedPath}
+        if not (i == 0 or i == len(path) - 1):
+            px, py = path[i - 1]
+            dx, dy = x - px, y - py
+
+            if (dx, dy) == prevDir:
+                continue
+
+            prevDir = (dx, dy)
+
+        wayPoints.append((round(y / maxY, 4), round(1 - (x / maxX), 4)))
+    
+
+
+    return {"length": len(wayPoints), "path": wayPoints}
+    #return {"length": len(simplifiedPath), "path": simplifiedPath}
+
+if __name__ == "__main__":
+    uvicorn.run("api:app", host="localhost", port=5000, reload=True)

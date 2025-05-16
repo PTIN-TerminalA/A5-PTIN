@@ -18,7 +18,7 @@ class GridMap:
         f = self.footprint
         h = self.half
 
-        x0, y0 = cx - h, cy - h
+        x0, y0 = x - h, y - h
         x1, y1 = x0 + f,   y0 + f
 
         if x0 < 0 or y0 < 0 or x1 > self.height or y1 > self.width:
@@ -32,10 +32,7 @@ class GridMap:
 
     def areaSum(self, x0: int, y0: int, x1: int, y1: int) -> int:
         return (
-            self.sat[x1, y1]
-        - self.sat[x0, y1]
-        - self.sat[x1, y0]
-        + self.sat[x0, y0]
+            self.sat[x1, y1] - self.sat[x0, y1] - self.sat[x1, y0] + self.sat[x0, y0]
         )
 
     def drawPoint(self, x: int, y: int, color: tuple = (255, 0, 0), radius: int = 1):
@@ -54,6 +51,6 @@ def imageToMatrix(image_path: str) -> GridMap:
     threshold = 254
     binaryMTX = (mtx < threshold).astype(np.uint8)
 
-    return GridMap(binaryMTX, 1, 15)
+    return GridMap(binaryMTX, 1, 5)
 
     
