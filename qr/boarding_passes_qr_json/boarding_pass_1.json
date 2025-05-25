@@ -1,0 +1,26 @@
+{
+  "id": "1",
+  "airline": "Iberia",
+  "airlineImage": {
+    "uri": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Iberia_air_logo.png/1200px-Iberia_air_logo.png"
+  },
+  "flightNumber": "IB 2467",
+  "route": {
+    "origin": "BCN",
+    "originName": "Barcelona-El Prat",
+    "destination": "CDG",
+    "destinationName": "Paris Charles de Gaulle",
+    "departureTime": "2025-05-29T11:00:00",
+    "arrivalTime": "2025-05-29T12:15:00",
+    "terminal": "2",
+    "gate": "B5"
+  },
+  "passenger": {
+    "name": "Jordi Sol\u00e9",
+    "seat": "20C",
+    "ticketNumber": "IB-9107143172"
+  },
+  "boardingTime": "2025-05-29T10:30:00",
+  "baggageAllowance": "1 \u00d7 23kg",
+  "qrCodeLink": "boardingpass://1"
+}

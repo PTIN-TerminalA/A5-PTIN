@@ -1,0 +1,49 @@
+informacion_terminalA:
+  description: >
+    Analiza la consulta del usuario: {user_message}. 
+    Responde proporcionando informacion especifica sobre la ubicacion del Terminal A y sus accesos principales. 
+    Utiliza el conocimiento disponible en el archivo terminales.csv y adapta el tono y el idioma segun el contenido del mensaje.
+  expected_output: >
+    Una explicacion clara y directa sobre la ubicacion del Terminal A, incluyendo sus accesos cercanos y puntos de referencia. 
+    La respuesta debe estar en el mismo idioma de la pregunta ({user_message}) y debe incluir informacion adaptada desde el archivo terminales.csv.
+  agent: agente_informacion_general
+
+servicios_disponibles:
+  description: >
+    Analiza la consulta del usuario: {user_message}. 
+    Proporciona información sobre los servicios del aeropuerto como restaurantes, tiendas, salas VIP, cajeros automáticos y otros servicios disponibles. 
+    Utiliza el archivo servicios.csv para obtener la información y adapta el idioma y el tono de la respuesta según el contenido del mensaje.
+  expected_output: >
+    Una lista clara y ordenada de los servicios disponibles con su ubicación, horario de funcionamiento y cualquier detalle útil. 
+    La respuesta debe estar en el mismo idioma de la pregunta ({user_message}) y extraer la información desde el archivo servicios.csv.
+  agent: agente_informacion_general
+
+horarios_areas_comerciales:
+  description: >
+    Analiza la consulta del usuario: {user_message}.
+    Responde con los horarios de apertura y cierre de bodegas, tiendas, restaurantes y otras zonas comerciales del aeropuerto. 
+    Utiliza los datos disponibles en el archivo areas_comerciales.csv y adapta la respuesta al idioma del usuario.
+  expected_output: >
+    Una tabla o listado con los horarios exactos de apertura y cierre de las áreas comerciales consultadas, incluyendo su ubicación y tipo de servicio. 
+    La respuesta debe estar en el mismo idioma de la pregunta ({user_message}) y estar basada en el contenido de areas_comerciales.csv.
+  agent: agente_informacion_general
+
+estado_vuelos:
+  description: >
+    Analiza la consulta del usuario: {user_message}.
+    Proporciona el estado actual de un vuelo si se proporciona su número o destino. 
+    Usa el archivo vuelos.csv si es útil y adapta el idioma y el tono según el mensaje.
+  expected_output: >
+    Un resumen del estado del vuelo: si está en horario o retrasado, puerta de embarque asignada, terminal correspondiente y cualquier otra información relevante. 
+    La respuesta debe estar en el mismo idioma de la pregunta ({user_message})  y estar basada en el contenido de vuelos.csv.
+  agent: agente_informacion_general
+
+consulta_general:
+  description: >
+    Analiza la consulta del usuario: {user_message}.
+    Responde cualquier pregunta general sobre las instalaciones, servicios o procesos del aeropuerto que no esté cubierta por otras tareas. 
+    Usa el archivo informacion_general.csv si es útil y adapta el idioma y el tono según el mensaje.
+  expected_output: >
+    Una respuesta clara, útil y actualizada que se adapte al contenido de la pregunta ({user_message}). 
+    Si es necesario, incluye datos extraídos de informacion_general.csv o fuentes adicionales, presentados en el idioma original del usuario.
+  agent: agente_informacion_general

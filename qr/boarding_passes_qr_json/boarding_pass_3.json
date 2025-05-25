@@ -1,0 +1,26 @@
+{
+  "id": "3",
+  "airline": "Vueling",
+  "airlineImage": {
+    "uri": "https://play-lh.googleusercontent.com/PUEfpx0TaaLM52ZjX70d2_HZUUvN1RJ6VwtAejTwxPIat_GMuVuGShKx2JGG38_yi7c=w600-h300-pc0xffffff-pd"
+  },
+  "flightNumber": "VU 6973",
+  "route": {
+    "origin": "BCN",
+    "originName": "Barcelona-El Prat",
+    "destination": "MAD",
+    "destinationName": "Madrid-Barajas",
+    "departureTime": "2025-05-10T18:00:00",
+    "arrivalTime": "2025-05-10T19:00:00",
+    "terminal": "2",
+    "gate": "D16"
+  },
+  "passenger": {
+    "name": "Jordi Sol\u00e9",
+    "seat": "22B",
+    "ticketNumber": "VU-3706368844"
+  },
+  "boardingTime": "2025-05-10T17:30:00",
+  "baggageAllowance": "2 \u00d7 20kg",
+  "qrCode": "boardingpass://3"
+}

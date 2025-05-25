@@ -1,0 +1,26 @@
+{
+  "id": "5",
+  "airline": "Ryanair",
+  "airlineImage": {
+    "uri": "https://logohistory.net/wp-content/uploads/2023/05/Ryanair-Emblem.png"
+  },
+  "flightNumber": "RY 3351",
+  "route": {
+    "origin": "BCN",
+    "originName": "Barcelona-El Prat",
+    "destination": "FRA",
+    "destinationName": "Frankfurt International",
+    "departureTime": "2025-05-05T16:00:00",
+    "arrivalTime": "2025-05-05T18:45:00",
+    "terminal": "4S",
+    "gate": "B16"
+  },
+  "passenger": {
+    "name": "Joan Fontana",
+    "seat": "3D",
+    "ticketNumber": "RY-8681915377"
+  },
+  "boardingTime": "2025-05-05T15:30:00",
+  "baggageAllowance": "1 \u00d7 10kg",
+  "qrCode": "boardingpass://5"
+}

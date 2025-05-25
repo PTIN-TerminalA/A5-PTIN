@@ -1,0 +1,14 @@
+Abans d'executar cal substituir les rutes /ruta/completa/taula.csv pel camí absolut on tinguis realment els fitxers .csv.
+
+Opció 1: Des de MySQL Workbench:
+
+    1. Obre el fitxer .sql amb File > Open SQL Script...
+
+    2. Assegura’t que tens seleccionada la base de dades correcta.
+
+    3. Executa’l amb el botó de “lightning” (⚡).
+
+Opció 2: Des de línia de comandes:
+
+    mysql -u usuari -p nom_base_de_dades < importar_clients.sql
+
