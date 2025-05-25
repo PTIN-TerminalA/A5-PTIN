@@ -20,7 +20,7 @@ def run():
     while True:
         
         # Mostra el prompt i recull l’entrada de l’usuari
-        user_input = input("john: ")
+        user_input = input("You: ")
 
         # Si l’usuari escriu alguna d’aquestes paraules, es finalitza la sessió
         if user_input.lower() in ["exit", "quit", "bye"]:
@@ -31,6 +31,7 @@ def run():
 
         # Prepara les dades d’entrada per al crew
         inputs = {
+            "user_id": 44,
             "user_message": f"{user_input}",
              "history": f"{chat_history}",
         }
