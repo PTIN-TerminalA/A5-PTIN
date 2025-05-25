@@ -1,10 +1,17 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import CSVSearchTool
 from crewai.knowledge.source.csv_knowledge_source import CSVKnowledgeSource
 from crewai.tools import tool
 from typing import List, Optional
 from crewai import LLM
+import mysql.connector
+from dotenv import load_dotenv
+import os
+from pathlib import Path
+import csv
+
+dotenv_path = Path('./src/agent3/') / '.env'
+load_dotenv(dotenv_path=dotenv_path)
 
 EMBEDDER_CONFIG = {
     "provider": "ollama",
@@ -18,7 +25,7 @@ config = {
         "provider": "qdrant",
         "config": {
             "collection_name": "agent3",
-            "host": "192.168.10.12",
+            "host": "10.60.0.3",
             "port": 6333,
             "embedding_model_dims": 768,  # Change this according to your local model's dimensions
         },
@@ -26,10 +33,10 @@ config = {
     "llm": {
         "provider": "ollama",
         "config": {
-            "model": "llama3.1:latest",
+            "model": "llama3.2:latest",
             "temperature": 0,
             "max_tokens": 2000,
-            "ollama_base_url": "http://192.168.10.12:11434",  # Ensure this URL is correct
+            "ollama_base_url": "http://10.60.0.3:11434",  # Ensure this URL is correct
         },
     },
     "embedder": {
@@ -37,7 +44,7 @@ config = {
         "config": {
             "model": "nomic-embed-text:latest",
             # Alternatively, you can use "snowflake-arctic-embed:latest"
-            "ollama_base_url": "http://192.168.10.12:11434",
+            "ollama_base_url": "http://10.60.0.3:11434",
         },
     },
 }
@@ -49,8 +56,8 @@ config = {
 
 # Instància del model LLM que s’utilitzarà per als agents
 llm = LLM(
-    model="ollama/llama3.1",  # Versión más ligera
-    base_url="http://192.168.10.12:11434",
+    model="ollama/llama3.2",  # Versión más ligera
+    base_url="http://10.60.0.3:11434",
     temperature=0.3,
     config={
         "max_tokens": 200,  # Limita respuesta
@@ -60,23 +67,76 @@ llm = LLM(
 
 
 
-# Eina que permet buscar informació dins d’una carpeta local
-# tool = CSVSearchTool(
-#      csv='knowledge/dades_serveis.csv', # Carpeta que conté els documents de coneixement
-#      config=dict(
-#          llm=dict(
-#              provider="ollama", # or google, openai, anthropic, llama2, ...
-#              config=dict(
-#                  model="llama3.1",
-#                  stream=True,
-#              ),
-#          ),
-#          embedder=EMBEDDER_CONFIG,
-#      )
-#  )
+def obtener_datos():
+    conn = mysql.connector.connect(
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME")
+    )
+    cursor = conn.cursor()
+    cursor.execute("""SELECT 
+                        s.id,
+                        s.name,
+                        s.description,
+                        s.avg_price,
+                        s.offer,
+                        GROUP_CONCAT(DISTINCT st.tag_name ORDER BY st.tag_name SEPARATOR ', ') AS tags,
+                        GROUP_CONCAT(
+                            DISTINCT CONCAT(
+                                TIME_FORMAT(sch.opening_hour, '%H:%i'), '-', 
+                                TIME_FORMAT(sch.closing_hour, '%H:%i')
+                            ) 
+                            ORDER BY sch.opening_hour
+                            SEPARATOR ', '
+                        ) AS horarios
+                        FROM 
+                            service s
+                        LEFT JOIN 
+                            service_tag st ON s.id = st.service_id
+                        LEFT JOIN 
+                        schedule sch ON s.id = sch.service_id
+                        GROUP BY 
+                        s.id, s.name, s.description, s.avg_price, s.offer
+                        ORDER BY 
+                        s.id; """)
+    resultados = cursor.fetchall()
+    columnas = [i[0] for i in cursor.description]  # Obtener nombres de columnas
+    conn.close()
+    return resultados, columnas
+
+datos, columnas = obtener_datos()
+
+# Guardar en archivo CSV
+csv_filename = './knowledge/servicios.csv'
+with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
+    writer = csv.writer(csvfile)
+    
+    # Escribir encabezados
+    writer.writerow(columnas)
+    
+    # Escribir datos
+    writer.writerows(datos)
+
+csv_filename = './src/agent3/knowledge/servicios.csv'
+with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
+    writer = csv.writer(csvfile)
+    
+    # Escribir encabezados
+    writer.writerow(columnas)
+    
+    # Escribir datos
+    writer.writerows(datos)
+
+
+
+print(f"Datos guardados en {csv_filename}")
+
+
+
 
 csv_source = CSVKnowledgeSource(
-    file_paths=['dades_serveis.csv','punts_importants_aeroport.csv'],
+    file_paths=['servicios.csv'],
     chunk_size=300,      # Maximum size of each chunk (default: 4000)
     chunk_overlap=20
 )
@@ -113,7 +173,7 @@ class Agent3():
             memory=True,
             memory_config={
                 "provider": "mem0",
-                "config": {"user_id": "john", 'local_mem0_config': config},
+                "config": {"user_id": '{user_id}', 'local_mem0_config': config},
             },
             allow_delegation=False, # No permet delegar tasques a altres agents
             max_iter=1,
@@ -130,12 +190,13 @@ class Agent3():
                             {history}
 
                             Responde al mensaje del usuario: {user_message} """,
-            expected_output="""Tu respuesta debe ser relevante, precisa y clara, abordando directamente la consulta del usuario o continuando la conversación de manera lógica.
-                                con el formato:
-                                - Nombre del establecimiento
-                                - Ubicación exacta (terminal y puerta)
-                                - Horario
-                                - Rango de precio (si aplica).""",
+            expected_output = """Tu respuesta debe ser relevante, precisa y clara, abordando directamente la consulta del usuario o continuando la conversación de manera lógica.
+            con el formato:
+            - Nombre del establecimiento
+            - Descripcion
+            - Rango de precio (si aplica)
+            - Horarios
+            También puedes añadir detalles adicionales útiles para el usuario, como tipo de comida, servicios disponibles o recomendaciones.""",
            agent=self.asistente_servicios()
         )
 
@@ -151,7 +212,7 @@ class Agent3():
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,  # Mejor que sequential
             max_rpm=20, # Les tasques s’executen una darrere l’altra
-            #verbose=True,  # Mostra informació detallada de l’execucio 
+            verbose=True,  # Mostra informació detallada de l’execucio 
             knowledge_sources=[csv_source],
             embedder=EMBEDDER_CONFIG,
               
