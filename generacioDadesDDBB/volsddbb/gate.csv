@@ -1,0 +1,5 @@
+id,gate_number,coordinates
+1,A1,POINT(0.1036 0.1355)
+2,A2,POINT(0.8797 0.1380)
+3,A3,POINT(0.2026 0.7415)
+4,A4,POINT(0.6101 0.8233)

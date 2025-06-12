@@ -1,0 +1,101 @@
+id,flight_number,date,departure_time,arrival_time,is_canceled,is_delayed,distance,duration,airline_id,boarding_time,origin_code,origin_name,destination_code,destination_name,baggage_allowance_kg
+1,AF2782,2025-06-23,16:00:00,19:37:00,0,1,8275.01,03:37:00,4,15:15:00,AMS,Amsterdam Schiphol,DXB,Dubai International,10.0
+2,EK7642,2025-06-29,00:45:00,08:33:00,1,0,2642.43,07:48:00,7,00:00:00,BCN,Barcelona-El Prat,DXB,Dubai International,30.0
+3,IB2324,2025-06-15,19:15:00,02:27:00,1,1,6722.5,07:12:00,1,18:30:00,LHR,London Heathrow,DOH,Hamad International,15.0
+4,EK7044,2025-06-26,05:45:00,13:06:00,1,0,2980.43,07:21:00,7,05:00:00,FRA,Frankfurt Airport,MAD,Madrid-Barajas,30.0
+5,VY4213,2025-06-23,05:30:00,08:23:00,0,0,7440.06,02:53:00,2,04:45:00,AMS,Amsterdam Schiphol,CDG,Paris Charles de Gaulle,30.0
+6,VY5867,2025-07-08,04:45:00,07:21:00,0,0,1261.8,02:36:00,2,04:00:00,FRA,Frankfurt Airport,CDG,Paris Charles de Gaulle,15.0
+7,VY1125,2025-06-13,10:30:00,21:22:00,0,0,2930.82,10:52:00,2,09:45:00,LHR,London Heathrow,CDG,Paris Charles de Gaulle,10.0
+8,AF7862,2025-06-22,13:00:00,18:34:00,0,0,7081.64,05:34:00,4,12:15:00,AMS,Amsterdam Schiphol,DXB,Dubai International,15.0
+9,QR6397,2025-07-10,22:15:00,08:53:00,1,0,938.33,10:38:00,8,21:30:00,HND,Tokyo Haneda,DXB,Dubai International,10.0
+10,AF2497,2025-07-10,14:00:00,00:43:00,1,1,5203.29,10:43:00,4,13:15:00,FRA,Frankfurt Airport,AMS,Amsterdam Schiphol,20.0
+11,EK9647,2025-06-14,11:15:00,14:00:00,0,0,4601.16,02:45:00,7,10:30:00,JFK,John F. Kennedy International,DOH,Hamad International,23.0
+12,QR5986,2025-06-14,01:30:00,06:00:00,0,0,941.61,04:30:00,8,00:45:00,MAD,Madrid-Barajas,BCN,Barcelona-El Prat,10.0
+13,AF9455,2025-07-09,11:45:00,20:58:00,0,1,4015.17,09:13:00,4,11:00:00,DXB,Dubai International,BCN,Barcelona-El Prat,15.0
+14,KL6659,2025-07-01,04:00:00,14:25:00,0,0,2487.78,10:25:00,6,03:15:00,AMS,Amsterdam Schiphol,MAD,Madrid-Barajas,15.0
+15,QR1689,2025-07-11,14:15:00,17:02:00,0,1,8850.6,02:47:00,8,13:30:00,BCN,Barcelona-El Prat,HND,Tokyo Haneda,15.0
+16,FR8431,2025-07-11,14:00:00,21:22:00,0,1,5464.64,07:22:00,3,13:15:00,CDG,Paris Charles de Gaulle,LHR,London Heathrow,23.0
+17,FR4811,2025-07-01,14:30:00,23:32:00,1,0,910.63,09:02:00,3,13:45:00,FRA,Frankfurt Airport,AMS,Amsterdam Schiphol,23.0
+18,LH8756,2025-06-13,23:00:00,01:19:00,0,1,5769.67,02:19:00,5,22:15:00,FRA,Frankfurt Airport,CDG,Paris Charles de Gaulle,15.0
+19,QR8164,2025-06-21,19:30:00,07:26:00,0,0,919.82,11:56:00,8,18:45:00,AMS,Amsterdam Schiphol,BCN,Barcelona-El Prat,10.0
+20,VY6827,2025-07-12,13:15:00,21:49:00,0,0,5784.85,08:34:00,2,12:30:00,BCN,Barcelona-El Prat,LHR,London Heathrow,23.0
+21,QR3830,2025-06-16,13:15:00,20:12:00,0,1,339.73,06:57:00,8,12:30:00,JFK,John F. Kennedy International,BCN,Barcelona-El Prat,30.0
+22,KL9448,2025-07-11,21:45:00,07:58:00,1,0,376.1,10:13:00,6,21:00:00,AMS,Amsterdam Schiphol,DXB,Dubai International,30.0
+23,EK2805,2025-06-16,18:30:00,05:04:00,0,1,862.74,10:34:00,7,17:45:00,LHR,London Heathrow,HND,Tokyo Haneda,30.0
+24,EK4257,2025-06-23,17:00:00,22:16:00,1,1,6103.8,05:16:00,7,16:15:00,FRA,Frankfurt Airport,JFK,John F. Kennedy International,30.0
+25,KL3843,2025-06-13,13:00:00,20:48:00,1,0,2961.18,07:48:00,6,12:15:00,DXB,Dubai International,JFK,John F. Kennedy International,10.0
+26,VY9832,2025-07-07,22:00:00,04:59:00,0,1,3382.89,06:59:00,2,21:15:00,AMS,Amsterdam Schiphol,HND,Tokyo Haneda,30.0
+27,QR8723,2025-06-22,14:45:00,18:39:00,0,0,5138.14,03:54:00,8,14:00:00,MAD,Madrid-Barajas,FRA,Frankfurt Airport,15.0
+28,VY6967,2025-07-12,18:00:00,02:54:00,0,1,2469.44,08:54:00,2,17:15:00,JFK,John F. Kennedy International,DXB,Dubai International,15.0
+29,IB9556,2025-06-25,11:00:00,12:27:00,0,0,7465.39,01:27:00,1,10:15:00,FRA,Frankfurt Airport,JFK,John F. Kennedy International,15.0
+30,FR9929,2025-07-01,03:15:00,04:50:00,0,1,8047.08,01:35:00,3,02:30:00,FRA,Frankfurt Airport,HND,Tokyo Haneda,23.0
+31,LH9492,2025-06-13,22:45:00,07:29:00,0,0,5875.8,08:44:00,5,22:00:00,BCN,Barcelona-El Prat,DXB,Dubai International,30.0
+32,LH6280,2025-07-12,10:00:00,19:52:00,1,1,5102.96,09:52:00,5,09:15:00,HND,Tokyo Haneda,FRA,Frankfurt Airport,20.0
+33,FR2667,2025-07-02,18:15:00,01:08:00,1,1,4694.08,06:53:00,3,17:30:00,DOH,Hamad International,MAD,Madrid-Barajas,10.0
+34,AF9447,2025-07-01,14:30:00,21:53:00,0,0,258.18,07:23:00,4,13:45:00,DOH,Hamad International,DXB,Dubai International,23.0
+35,FR9484,2025-07-05,05:30:00,16:01:00,0,0,2250.86,10:31:00,3,04:45:00,DOH,Hamad International,CDG,Paris Charles de Gaulle,10.0
+36,EK6804,2025-06-18,22:15:00,10:09:00,0,1,8741.19,11:54:00,7,21:30:00,DOH,Hamad International,AMS,Amsterdam Schiphol,15.0
+37,LH3841,2025-06-16,05:30:00,10:21:00,0,0,7555.94,04:51:00,5,04:45:00,HND,Tokyo Haneda,MAD,Madrid-Barajas,10.0
+38,KL9389,2025-06-21,12:00:00,14:07:00,0,1,7369.38,02:07:00,6,11:15:00,DOH,Hamad International,BCN,Barcelona-El Prat,30.0
+39,QR6716,2025-06-20,09:00:00,11:32:00,0,1,2877.91,02:32:00,8,08:15:00,DXB,Dubai International,DOH,Hamad International,10.0
+40,QR6218,2025-07-05,02:15:00,05:25:00,0,1,5253.21,03:10:00,8,01:30:00,DXB,Dubai International,BCN,Barcelona-El Prat,20.0
+41,FR5614,2025-06-27,16:30:00,23:47:00,0,0,2981.12,07:17:00,3,15:45:00,HND,Tokyo Haneda,JFK,John F. Kennedy International,23.0
+42,IB1384,2025-06-28,17:30:00,02:26:00,1,1,3390.14,08:56:00,1,16:45:00,HND,Tokyo Haneda,FRA,Frankfurt Airport,15.0
+43,AF1500,2025-06-28,13:30:00,00:12:00,0,1,6226.61,10:42:00,4,12:45:00,MAD,Madrid-Barajas,DOH,Hamad International,10.0
+44,VY5557,2025-06-20,19:45:00,05:03:00,0,0,7317.38,09:18:00,2,19:00:00,BCN,Barcelona-El Prat,JFK,John F. Kennedy International,30.0
+45,VY4080,2025-07-02,11:30:00,15:06:00,1,1,7775.82,03:36:00,2,10:45:00,JFK,John F. Kennedy International,HND,Tokyo Haneda,30.0
+46,KL4916,2025-06-21,06:00:00,16:17:00,0,1,5003.56,10:17:00,6,05:15:00,DOH,Hamad International,MAD,Madrid-Barajas,30.0
+47,LH1514,2025-07-01,09:15:00,17:37:00,0,0,5546.89,08:22:00,5,08:30:00,DOH,Hamad International,BCN,Barcelona-El Prat,10.0
+48,LH9167,2025-06-17,14:00:00,01:04:00,0,1,704.71,11:04:00,5,13:15:00,AMS,Amsterdam Schiphol,DOH,Hamad International,30.0
+49,AF4661,2025-07-05,08:15:00,17:27:00,1,0,5631.94,09:12:00,4,07:30:00,DXB,Dubai International,FRA,Frankfurt Airport,30.0
+50,QR5188,2025-06-24,21:00:00,02:47:00,0,0,3529.51,05:47:00,8,20:15:00,CDG,Paris Charles de Gaulle,DXB,Dubai International,23.0
+51,FR5972,2025-06-18,05:30:00,06:33:00,0,1,8077.69,01:03:00,3,04:45:00,FRA,Frankfurt Airport,JFK,John F. Kennedy International,15.0
+52,EK4558,2025-07-05,05:30:00,09:06:00,0,0,4023.11,03:36:00,7,04:45:00,HND,Tokyo Haneda,DOH,Hamad International,23.0
+53,AF4916,2025-07-08,12:15:00,23:11:00,0,0,8947.09,10:56:00,4,11:30:00,MAD,Madrid-Barajas,HND,Tokyo Haneda,30.0
+54,EK1353,2025-07-07,16:30:00,21:21:00,0,1,2408.2,04:51:00,7,15:45:00,HND,Tokyo Haneda,FRA,Frankfurt Airport,23.0
+55,QR9577,2025-06-18,22:15:00,09:33:00,0,1,3076.68,11:18:00,8,21:30:00,DOH,Hamad International,JFK,John F. Kennedy International,20.0
+56,QR8895,2025-07-08,15:45:00,23:00:00,1,0,5243.23,07:15:00,8,15:00:00,MAD,Madrid-Barajas,DXB,Dubai International,15.0
+57,VY6216,2025-06-30,22:15:00,23:53:00,0,0,382.0,01:38:00,2,21:30:00,FRA,Frankfurt Airport,MAD,Madrid-Barajas,20.0
+58,QR7420,2025-07-05,07:45:00,18:41:00,0,0,2203.19,10:56:00,8,07:00:00,MAD,Madrid-Barajas,JFK,John F. Kennedy International,10.0
+59,QR5950,2025-07-01,06:30:00,08:38:00,0,0,7199.46,02:08:00,8,05:45:00,DXB,Dubai International,JFK,John F. Kennedy International,20.0
+60,EK7289,2025-06-30,10:30:00,18:55:00,1,0,7027.13,08:25:00,7,09:45:00,JFK,John F. Kennedy International,FRA,Frankfurt Airport,23.0
+61,KL2468,2025-06-28,18:30:00,01:59:00,0,1,5604.0,07:29:00,6,17:45:00,LHR,London Heathrow,FRA,Frankfurt Airport,10.0
+62,FR4276,2025-06-15,03:00:00,04:21:00,0,0,8435.25,01:21:00,3,02:15:00,FRA,Frankfurt Airport,DOH,Hamad International,15.0
+63,FR2335,2025-06-16,22:30:00,03:40:00,0,1,4623.28,05:10:00,3,21:45:00,BCN,Barcelona-El Prat,LHR,London Heathrow,30.0
+64,FR8510,2025-06-28,01:00:00,04:26:00,0,0,1575.63,03:26:00,3,00:15:00,DOH,Hamad International,CDG,Paris Charles de Gaulle,15.0
+65,QR8601,2025-07-11,05:45:00,11:00:00,0,1,6412.2,05:15:00,8,05:00:00,AMS,Amsterdam Schiphol,MAD,Madrid-Barajas,15.0
+66,QR7612,2025-06-30,06:00:00,15:11:00,1,0,679.69,09:11:00,8,05:15:00,DOH,Hamad International,HND,Tokyo Haneda,23.0
+67,FR4801,2025-07-07,08:15:00,18:01:00,0,1,648.48,09:46:00,3,07:30:00,FRA,Frankfurt Airport,DOH,Hamad International,23.0
+68,LH2772,2025-06-22,11:45:00,13:33:00,1,0,4721.2,01:48:00,5,11:00:00,FRA,Frankfurt Airport,CDG,Paris Charles de Gaulle,30.0
+69,KL1422,2025-06-14,15:45:00,00:42:00,0,0,8560.14,08:57:00,6,15:00:00,BCN,Barcelona-El Prat,LHR,London Heathrow,23.0
+70,VY1808,2025-07-10,17:00:00,00:10:00,0,0,995.24,07:10:00,2,16:15:00,BCN,Barcelona-El Prat,MAD,Madrid-Barajas,23.0
+71,IB6293,2025-07-03,20:30:00,06:59:00,1,0,8620.07,10:29:00,1,19:45:00,DOH,Hamad International,JFK,John F. Kennedy International,15.0
+72,IB5078,2025-07-09,15:00:00,18:16:00,1,0,6195.7,03:16:00,1,14:15:00,AMS,Amsterdam Schiphol,CDG,Paris Charles de Gaulle,30.0
+73,QR4734,2025-06-17,11:45:00,18:55:00,0,1,8415.66,07:10:00,8,11:00:00,FRA,Frankfurt Airport,DOH,Hamad International,10.0
+74,FR8919,2025-06-26,20:45:00,08:27:00,0,0,1755.06,11:42:00,3,20:00:00,HND,Tokyo Haneda,MAD,Madrid-Barajas,30.0
+75,AF5675,2025-07-06,02:30:00,07:05:00,0,1,8366.99,04:35:00,4,01:45:00,LHR,London Heathrow,DXB,Dubai International,20.0
+76,IB9816,2025-06-27,05:45:00,07:58:00,1,1,5806.97,02:13:00,1,05:00:00,MAD,Madrid-Barajas,DOH,Hamad International,30.0
+77,AF1258,2025-06-18,07:00:00,18:53:00,0,0,8143.68,11:53:00,4,06:15:00,JFK,John F. Kennedy International,FRA,Frankfurt Airport,23.0
+78,QR2162,2025-06-16,13:30:00,20:01:00,0,1,4759.55,06:31:00,8,12:45:00,MAD,Madrid-Barajas,DXB,Dubai International,15.0
+79,VY5467,2025-06-19,02:15:00,11:49:00,0,0,1528.9,09:34:00,2,01:30:00,FRA,Frankfurt Airport,MAD,Madrid-Barajas,10.0
+80,VY1420,2025-06-18,12:30:00,21:19:00,0,0,6030.27,08:49:00,2,11:45:00,MAD,Madrid-Barajas,DOH,Hamad International,15.0
+81,QR8615,2025-07-07,11:00:00,15:23:00,1,1,4689.95,04:23:00,8,10:15:00,MAD,Madrid-Barajas,AMS,Amsterdam Schiphol,15.0
+82,QR1235,2025-07-12,16:00:00,20:02:00,0,0,1255.16,04:02:00,8,15:15:00,DXB,Dubai International,FRA,Frankfurt Airport,23.0
+83,VY9582,2025-06-15,07:00:00,15:33:00,0,0,2136.44,08:33:00,2,06:15:00,CDG,Paris Charles de Gaulle,MAD,Madrid-Barajas,23.0
+84,IB6939,2025-06-28,00:15:00,06:51:00,1,0,4086.34,06:36:00,1,23:30:00,LHR,London Heathrow,HND,Tokyo Haneda,15.0
+85,EK8118,2025-06-23,09:30:00,19:51:00,1,1,2612.43,10:21:00,7,08:45:00,LHR,London Heathrow,HND,Tokyo Haneda,20.0
+86,IB3322,2025-07-12,06:45:00,15:13:00,0,0,6185.16,08:28:00,1,06:00:00,HND,Tokyo Haneda,AMS,Amsterdam Schiphol,20.0
+87,FR1513,2025-06-16,09:15:00,17:20:00,0,0,4408.8,08:05:00,3,08:30:00,DXB,Dubai International,JFK,John F. Kennedy International,23.0
+88,QR5881,2025-06-13,01:15:00,10:28:00,0,0,3002.1,09:13:00,8,00:30:00,CDG,Paris Charles de Gaulle,HND,Tokyo Haneda,20.0
+89,QR1767,2025-07-07,07:15:00,16:44:00,0,1,5967.62,09:29:00,8,06:30:00,CDG,Paris Charles de Gaulle,HND,Tokyo Haneda,20.0
+90,LH3197,2025-06-19,23:45:00,03:37:00,0,0,3380.48,03:52:00,5,23:00:00,BCN,Barcelona-El Prat,FRA,Frankfurt Airport,10.0
+91,LH3229,2025-06-14,23:30:00,03:08:00,0,1,8411.51,03:38:00,5,22:45:00,LHR,London Heathrow,DXB,Dubai International,30.0
+92,KL2792,2025-06-25,09:15:00,13:44:00,0,0,7452.36,04:29:00,6,08:30:00,FRA,Frankfurt Airport,MAD,Madrid-Barajas,23.0
+93,KL9727,2025-07-06,22:00:00,02:58:00,0,1,4423.61,04:58:00,6,21:15:00,DOH,Hamad International,DXB,Dubai International,23.0
+94,IB9689,2025-06-18,06:15:00,10:32:00,0,1,335.11,04:17:00,1,05:30:00,LHR,London Heathrow,AMS,Amsterdam Schiphol,23.0
+95,FR2158,2025-06-16,06:30:00,13:46:00,0,1,6964.24,07:16:00,3,05:45:00,HND,Tokyo Haneda,MAD,Madrid-Barajas,20.0
+96,FR7413,2025-06-25,18:00:00,01:44:00,0,1,6852.25,07:44:00,3,17:15:00,AMS,Amsterdam Schiphol,DXB,Dubai International,30.0
+97,AF7664,2025-07-03,21:00:00,06:25:00,0,1,5204.69,09:25:00,4,20:15:00,BCN,Barcelona-El Prat,AMS,Amsterdam Schiphol,23.0
+98,EK7510,2025-06-26,09:00:00,18:08:00,0,0,3301.12,09:08:00,7,08:15:00,MAD,Madrid-Barajas,AMS,Amsterdam Schiphol,10.0
+99,FR1107,2025-06-23,16:30:00,00:45:00,0,0,663.55,08:15:00,3,15:45:00,FRA,Frankfurt Airport,LHR,London Heathrow,20.0
+100,EK6228,2025-06-23,03:00:00,13:55:00,0,0,6524.62,10:55:00,7,02:15:00,CDG,Paris Charles de Gaulle,DOH,Hamad International,30.0
