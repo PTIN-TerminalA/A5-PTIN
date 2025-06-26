@@ -76,7 +76,7 @@ class AgentVols:
             goal="Donar informació personalitzada sobre el vol de l'usuari",
             backstory="""Ets un assistent virtual connectat a la base de dades d’un aeroport. Tens accés a informació en temps real del vol del passatger: número, horari, porta, estat i més.""",
             llm=llm,
-            memory=True,
+            memory=False,
             memory_config={
                 "provider": "mem0",
                 "config": {"user_id": '{user_id}'},
@@ -88,26 +88,24 @@ class AgentVols:
     @task
     def task_vol_info(self) -> Task:
         return Task(
-            description="""Aquest és l'historial de conversa: 
-{history}
+            description="""Tu ets un assistent de vols.
 
-Aquest és el missatge actual: 
+Aquest és el missatge que t'ha fet l'usuari:
 {user_message}
 
-Això és el que saps del vol de l'usuari:
+Aquestes són les dades actuals del seu vol:
 {vol_info}
 
-Genera una resposta útil, clara i personalitzada per a l'usuari.""",
-            expected_output="""Resposta completa amb:
-- Número de vol
-- Data i hora de sortida
-- Porta d’embarcament
-- Estat del vol (a temps, endarrerit, cancel·lat…)
-- Companyia aèria
-- Destinació
-- Informació addicional si és rellevant (seient, classe, etc.)""",
-            agent=self.assistent_vols()
-        )
+Respon exclusivament la pregunta de l'usuari basant-te en aquestes dades. Si no tens prou informació, digues-ho clarament.
+
+Respon seguint aquestes instruccions:
+- Utilitza un to amable i clar.
+- No repeteixis la pregunta de l’usuari.
+- No afegeixis dades que no surtin a {vol_info}.
+""",
+        expected_output="Una resposta clara i directa a la pregunta de l’usuari, basada en les dades proporcionades.",
+        agent=self.assistent_vols()
+    )
 
     @crew
     def crew(self) -> Crew:
@@ -121,5 +119,15 @@ Genera una resposta útil, clara i personalitzada per a l'usuari.""",
     def kickoff(self, inputs: dict):
         # Carrega automàticament les dades del vol i afegeix-les a inputs
         vol_info = obtenir_dades_vol(inputs.get("user_id", 0))
-        inputs["vol_info"] = vol_info if isinstance(vol_info, str) else "\n".join(f"{k}: {v}" for k, v in vol_info.items())
+        #inputs["vol_info"] = vol_info if isinstance(vol_info, str) else "\n".join(f"{k}: {v}" for k, v in vol_info.items())
+
+        if isinstance(vol_info, str):
+            # Si no hi ha dades del vol
+            inputs["vol_info"] = vol_info
+        else:
+            # Interpretem valors booleans com a text comprensible
+            vol_info["is_canceled"] = "Sí" if vol_info["is_canceled"] else "No"
+            vol_info["is_delayed"] = "Sí" if vol_info["is_delayed"] else "No"
+            inputs["vol_info"] = "\n".join(f"{k}: {v}" for k, v in vol_info.items())
+
         return self.crew().kickoff(inputs=inputs)
