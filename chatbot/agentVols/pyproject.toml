@@ -1,0 +1,28 @@
+[project]
+name = "agent_vols"
+version = "0.1.0"
+description = "Agent de vols usant CrewAI"
+authors = [
+    { name = "Your Name", email = "you@example.com" },
+]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "chromadb>=0.5.23",
+    "crewai[tools]>=0.114.0,<1.0.0",
+    "langchain>=0.3.23",
+    "mysql-connector-python>=9.3.0",
+    "ollama>=0.4.7",
+]
+
+[project.scripts]
+agent_vols = "agent_vols.main:run"
+run_crew = "agent_vols.main:run"
+train_vols = "agent_vols.main:train"
+replay_vols = "agent_vols.main:replay"
+test_vols = "agent_vols.main:test"
+
+[build-system]
+requires = [
+    "hatchling",
+]
+build-backend = "hatchling.build"
