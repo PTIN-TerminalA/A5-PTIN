@@ -1,9 +1,8 @@
 import json
 from predictiveModel import setup
-from mapa_coord import marcar_punto_normalizado
 
 # Load trained model
-ia = setup("position_model.pkl")
+ia = setup("position_model_user.pkl")
 
 # Load test sample
 # És el primer fitxer de la carpeta points
@@ -15,7 +14,16 @@ mesura = test_data["measure"]
 # Predict coordinates
 x, y = ia.triangula(mesura)
 
-print("Expected coordinates: x= 0.43792207792207793, y =  0.2564874012786762")
+print("Expected coordinates: x = 0.4607, y = 0.8439")
 print(f"Predicted coordinates: x = {x}, y = {y}")
 
-#marcar_punto_normalizado("MapaTerminalA.png", x, y) 
+with open("testA.json") as fA:
+    test_dataA = json.load(fA)
+
+mesuraA = test_dataA["measure"]
+
+# Predict coordinates
+xA, yA = ia.triangula(mesuraA)
+
+print("Expected coordinates: x = 0.3665, y = 0.0666")
+print(f"Predicted coordinates: x = {xA}, y = {yA}")

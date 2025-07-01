@@ -1,66 +1,117 @@
-import json
+#!/usr/bin/env python3
+"""
+Wi-Fi Indoor Positioning Model Trainer
+
+This script reads JSON files containing Wi-Fi scan data and their corresponding
+(x, y) coordinates, builds a machine learning model to predict positions based
+on RSSI fingerprints, evaluates it, and saves the trained model.
+"""
+
 import os
+import json
+import glob
 import numpy as np
-from typing import List, Dict
-from sklearn.ensemble import RandomForestRegressor
+import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
 from sklearn.multioutput import MultiOutputRegressor
+from xgboost import XGBRegressor
+from sklearn.metrics import mean_squared_error
 import joblib
-from math import sqrt
 
-DEFAULT_RSSI = -100.0
+def load_data(json_dir):
+    """
+    Load and parse all JSON files from the directory.
+    Returns: pandas DataFrame with features and target coordinates.
+    """
+    data = []
+    for filepath in glob.glob(os.path.join(json_dir, "*.json")):
+        with open(filepath, 'r') as f:
+            sample = json.load(f)
 
-def load_data(json_dir: str):
-    features = []
-    targets = []
-    all_bssids = set()
-    samples = []
+        coord = sample.get("coordinates", {})
+        x = coord.get("x")
+        y = coord.get("y")
 
-    for filename in os.listdir(json_dir):
-        if filename.endswith(".json"):
-            with open(os.path.join(json_dir, filename)) as f:
-                data = json.load(f)
-                if "coordinates" not in data or "measure" not in data:
-                    continue
-                samples.append(data)
-                all_bssids.update(m['bssid'] for m in data['measure'])
+        if x is None or y is None:
+            continue  # skip invalid entries
 
-    bssid_list = sorted(list(all_bssids))
-    bssid_index = {bssid: idx for idx, bssid in enumerate(bssid_list)}
+        row = {"x": x, "y": y}
+        for ap in sample.get("measurements", []):
+            bssid = ap.get("bssid")
+            rssi = ap.get("rssi")
+            if bssid and rssi is not None:
+                row[bssid] = rssi
 
-    for data in samples:
-        vec = [DEFAULT_RSSI] * len(bssid_list)
-        for m in data['measure']:
-            if m['bssid'] in bssid_index:
-                vec[bssid_index[m['bssid']]] = m['rssi']
-        features.append(vec)
-        targets.append([data['coordinates']['x'], data['coordinates']['y']])
+        data.append(row)
 
-    return np.array(features), np.array(targets), bssid_list
+    df = pd.DataFrame(data)
+    return df
 
-def train_model(X: np.ndarray, y: np.ndarray):
-    X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+def preprocess(df):
+    """
+    Prepare features and targets.
+    Missing BSSID values are filled with a default RSSI of -100.
+    Returns: X (features), y (targets)
+    """
+    y = df[["x", "y"]].values.astype(np.float32)
+    X = df.drop(columns=["x", "y"]).fillna(-100).astype(np.float32)
+    return X, y
 
-    base_model = RandomForestRegressor(
-        n_estimators=300,
-        max_depth=15,
-        min_samples_leaf=1,
-        bootstrap=False,
-        random_state=12
+def train_model(X, y):
+    """
+    Split data, train model, and evaluate performance.
+    Returns: trained model, (rmse_x, rmse_y, combined_rmse)
+    """
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42
     )
-    model = MultiOutputRegressor(base_model)
+
+    model = MultiOutputRegressor(XGBRegressor(
+        objective="reg:squarederror",
+        n_estimators=200,
+        learning_rate=0.1,
+        max_depth=10,
+        subsample=0.8,
+        colsample_bytree=0.8,
+        random_state=42
+    ))
+
     model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
 
-    y_pred = model.predict(X_val)
-    rmse = sqrt(mean_squared_error(y_val, y_pred))
-    print(f"Validation RMSE: {rmse:.4f}")
+    rmse_x = np.sqrt(mean_squared_error(y_test[:, 0], y_pred[:, 0]))
+    rmse_y = np.sqrt(mean_squared_error(y_test[:, 1], y_pred[:, 1]))
+    combined_rmse = np.sqrt(rmse_x**2 + rmse_y**2)
 
-    return model
+    return model, rmse_x, rmse_y, combined_rmse
+
+def main():
+    json_dir = "pointsPruebaA"  # Replace with actual path
+
+    print("Loading data...")
+    df = load_data(json_dir)
+    if df.empty:
+        print("No valid data found.")
+        return
+
+    print(f"Loaded {len(df)} samples, {len(df.columns)-2} unique BSSIDs.")
+    X, y = preprocess(df)
+
+    print("Training model...")
+    model, rmse_x, rmse_y, combined_rmse = train_model(X, y)
+
+    print(f"RMSE X: {rmse_x:.5f}")
+    print(f"RMSE Y: {rmse_y:.5f}")
+    print(f"Combined RMSE: {combined_rmse:.5f}")
+
+    # Check if we meet the 0.05 RMSE requirement
+    if combined_rmse < 0.05:
+        print("✅ Target accuracy achieved!")
+
+    print("Saving model to 'position_model.pkl'...")
+    bssid_list = list(df.drop(columns=["x", "y"]).columns)
+    joblib.dump((model, bssid_list), "position_model.pkl")
+    print("Done.")
 
 if __name__ == "__main__":
-    data_dir = "points"
-    X, y, bssid_list = load_data(data_dir)
-    model = train_model(X, y)
-    joblib.dump((model, bssid_list), "position_model.pkl")
-    print("Model saved to position_model.pkl")
+    main()

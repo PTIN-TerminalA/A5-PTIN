@@ -1,0 +1,192 @@
+{
+    "coordinates": {
+        "x": 0.871161937713623,
+        "y": 0.6750802993774414
+    },
+    "measurements": [
+        {
+            "bssid": "f01d2d8cd2e0",
+            "rssi": -77
+        },
+        {
+            "bssid": "f01d2d8cd2e2",
+            "rssi": -77
+        },
+        {
+            "bssid": "a89d216db0f0",
+            "rssi": -54
+        },
+        {
+            "bssid": "cc46d6da81f3",
+            "rssi": -65
+        },
+        {
+            "bssid": "cc46d6da81f2",
+            "rssi": -65
+        },
+        {
+            "bssid": "a89d216db0f2",
+            "rssi": -55
+        },
+        {
+            "bssid": "cc46d6da81f0",
+            "rssi": -65
+        },
+        {
+            "bssid": "001add4654a4",
+            "rssi": -89
+        },
+        {
+            "bssid": "a89d216db0f4",
+            "rssi": -56
+        },
+        {
+            "bssid": "a89d216db0f3",
+            "rssi": -54
+        },
+        {
+            "bssid": "a89d216db0f5",
+            "rssi": -54
+        },
+        {
+            "bssid": "cc46d6da81f4",
+            "rssi": -65
+        },
+        {
+            "bssid": "ee35611e30a5",
+            "rssi": -90
+        },
+        {
+            "bssid": "70df2f2c1193",
+            "rssi": -77
+        },
+        {
+            "bssid": "70df2f2c1194",
+            "rssi": -76
+        },
+        {
+            "bssid": "70df2f2c1191",
+            "rssi": -76
+        },
+        {
+            "bssid": "70df2f2c1192",
+            "rssi": -76
+        },
+        {
+            "bssid": "70df2f2c1195",
+            "rssi": -77
+        },
+        {
+            "bssid": "64f69d4afb73",
+            "rssi": -89
+        },
+        {
+            "bssid": "64f69d4afb71",
+            "rssi": -89
+        },
+        {
+            "bssid": "64f69d4afb70",
+            "rssi": -89
+        },
+        {
+            "bssid": "001601983727",
+            "rssi": -94
+        },
+        {
+            "bssid": "70df2f2c1190",
+            "rssi": -76
+        },
+        {
+            "bssid": "64f69d4afb75",
+            "rssi": -89
+        },
+        {
+            "bssid": "cc46d6da81fc",
+            "rssi": -67
+        },
+        {
+            "bssid": "64f69db3ed31",
+            "rssi": -82
+        },
+        {
+            "bssid": "cc46d6da81fb",
+            "rssi": -67
+        },
+        {
+            "bssid": "a89d216db0fb",
+            "rssi": -59
+        },
+        {
+            "bssid": "64f69db3ed33",
+            "rssi": -82
+        },
+        {
+            "bssid": "64f69db3ed32",
+            "rssi": -83
+        },
+        {
+            "bssid": "a89d216db0fd",
+            "rssi": -59
+        },
+        {
+            "bssid": "64f69db3ed35",
+            "rssi": -82
+        },
+        {
+            "bssid": "a89d216db0fc",
+            "rssi": -60
+        },
+        {
+            "bssid": "cc46d6da81ff",
+            "rssi": -66
+        },
+        {
+            "bssid": "a89d216db0ff",
+            "rssi": -59
+        },
+        {
+            "bssid": "cc46d6da81fd",
+            "rssi": -67
+        },
+        {
+            "bssid": "f01d2d8cd2ea",
+            "rssi": -80
+        },
+        {
+            "bssid": "f01d2d8cd2eb",
+            "rssi": -80
+        },
+        {
+            "bssid": "f01d2d8cd2ec",
+            "rssi": -80
+        },
+        {
+            "bssid": "f01d2d8cd2ed",
+            "rssi": -80
+        },
+        {
+            "bssid": "f01d2d8cd2ee",
+            "rssi": -81
+        },
+        {
+            "bssid": "f01d2d8cd2ef",
+            "rssi": -81
+        },
+        {
+            "bssid": "70df2f140275",
+            "rssi": -87
+        },
+        {
+            "bssid": "70df2f140272",
+            "rssi": -87
+        },
+        {
+            "bssid": "70df2f140271",
+            "rssi": -89
+        },
+        {
+            "bssid": "70df2f140270",
+            "rssi": -88
+        }
+    ]
+}

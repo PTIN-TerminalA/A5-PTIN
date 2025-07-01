@@ -1,0 +1,32 @@
+{
+    "coordinates": {
+        "x": 0.48704662919044495,
+        "y": 0.10023766756057739
+    },
+    "measurements": [
+        {
+            "bssid": "d8b190c32c4a",
+            "rssi": -80
+        },
+        {
+            "bssid": "2cf89ba0e800",
+            "rssi": -73
+        },
+        {
+            "bssid": "2cf89ba0e802",
+            "rssi": -73
+        },
+        {
+            "bssid": "d8b190c32c4d",
+            "rssi": -80
+        },
+        {
+            "bssid": "cc46d6cb4003",
+            "rssi": -75
+        },
+        {
+            "bssid": "d8b190c32c4f",
+            "rssi": -80
+        }
+    ]
+}

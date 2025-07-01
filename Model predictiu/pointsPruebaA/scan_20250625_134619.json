@@ -1,0 +1,124 @@
+{
+    "coordinates": {
+        "x": 0.8523473739624023,
+        "y": 0.6759366393089294
+    },
+    "measurements": [
+        {
+            "bssid": "cc46d6da81f3",
+            "rssi": -57
+        },
+        {
+            "bssid": "a89d216db0f0",
+            "rssi": -64
+        },
+        {
+            "bssid": "cc46d6da81f2",
+            "rssi": -57
+        },
+        {
+            "bssid": "cc46d6da81f1",
+            "rssi": -57
+        },
+        {
+            "bssid": "a89d216db0f2",
+            "rssi": -63
+        },
+        {
+            "bssid": "cc46d6da81f0",
+            "rssi": -57
+        },
+        {
+            "bssid": "a89d216db0f1",
+            "rssi": -63
+        },
+        {
+            "bssid": "a89d216db0f4",
+            "rssi": -63
+        },
+        {
+            "bssid": "a89d216db0f3",
+            "rssi": -63
+        },
+        {
+            "bssid": "cc46d6da81f4",
+            "rssi": -58
+        },
+        {
+            "bssid": "70df2f2c1193",
+            "rssi": -79
+        },
+        {
+            "bssid": "70df2f2c1194",
+            "rssi": -77
+        },
+        {
+            "bssid": "70df2f2c1192",
+            "rssi": -77
+        },
+        {
+            "bssid": "70df2f2c1195",
+            "rssi": -78
+        },
+        {
+            "bssid": "001601983727",
+            "rssi": -98
+        },
+        {
+            "bssid": "70df2f2c1190",
+            "rssi": -77
+        },
+        {
+            "bssid": "cc46d6da81fc",
+            "rssi": -72
+        },
+        {
+            "bssid": "5488deb1ee2d",
+            "rssi": -87
+        },
+        {
+            "bssid": "cc46d6da81fb",
+            "rssi": -71
+        },
+        {
+            "bssid": "a89d216db0fb",
+            "rssi": -70
+        },
+        {
+            "bssid": "5488deb1ee2b",
+            "rssi": -88
+        },
+        {
+            "bssid": "a89d216db0fd",
+            "rssi": -71
+        },
+        {
+            "bssid": "cc46d6da81ff",
+            "rssi": -71
+        },
+        {
+            "bssid": "a89d216db0fc",
+            "rssi": -71
+        },
+        {
+            "bssid": "a89d216db0ff",
+            "rssi": -71
+        },
+        {
+            "bssid": "cc46d6da81fe",
+            "rssi": -72
+        },
+        {
+            "bssid": "5488deb1ee2f",
+            "rssi": -88
+        },
+        {
+            "bssid": "cc46d6da81fd",
+            "rssi": -71
+        },
+        {
+            "bssid": "a89d216db0fe",
+            "rssi": -72
+        }
+    ]
+}
