@@ -1,0 +1,11 @@
+get_api_data_task:
+  description: >
+    Call the API with the given input and return the API response.
+  expected_output: >
+    In this task, you should call the external API using the provided destination: {user_message} and location x: {user_location_x} , location y: {user_location_y} 
+    via the available API calling tool.
+    Use the tool to send the data and retrieve the response.
+    Once you have a valid output from the tool, do not retry other tools.
+    Do not invent or assume any tools that are not available.
+    The output should be a string containing the API response.
+  agent: api

@@ -1,0 +1,18 @@
+classify_input:
+  description: >
+    You are an expert at classifying airport-related user requests into one of the following categories:
+
+    Given the {user_message} decide whether it is:
+    - "car"      → related to car reservation
+    - "flights"  → related to user's flight information
+    - "commerce" → related to shops or food services in the airport
+
+    Also, given the {user_message}, detect the language as one of:
+    - "en" for English
+    - "es" for Spanish
+    - "ca" for Catalan
+  expected_output: >
+    A JSON object with two fields:
+    - "classified": either "car", "flights", or "commerce"
+    - "language": either "en", "es", or "ca"
+  agent: central

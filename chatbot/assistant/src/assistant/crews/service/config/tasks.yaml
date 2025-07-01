@@ -1,0 +1,30 @@
+# service_display_task:
+#   description: >
+#     Use the conversation history to build your response to the user:
+#       {history}
+#     Reply to the user's message: {user_message}
+
+#     The tool input is "{\"search_query\": \"{user_message}\", \"csv\": \"/home/iaa/assistant/knowledge/services.csv" 
+#   expected_output: >
+#     Your response must be relevant, accurate, and clear, directly addressing the user's query or logically continuing the conversation.
+#     Use the following format:
+#     - Name of the establishment
+#     - Description
+#     - Price range (if applicable)
+#     - Opening hours
+#     You may also add additional useful details for the user, such as type of cuisine, available services, or recommendations.
+#   agent: service
+
+service_display_task:
+  description: >
+    IMPORTANT: the path of the CSV file is /home/iaa/assistant/knowledge/services.csv
+    Use the information provided in the CSVSearchTool to respond helpfully and accurately to the user's message: {user_message}.
+    Base your answer on the entire conversation so far: {history}, ensuring that your response is coherent with the ongoing dialogue.
+    
+    Your job is to inform the user about the service mentioned, highlighting useful details like what it is, when it's open, how much it might cost, and any special features.
+    Prioritize clarity and helpfulness, adapting your tone to match the user's language and needs.
+  expected_output: >
+    Craft a response that feels natural and engaging while staying accurate and directly addressing the user's question or continuing the flow of the conversation.
+
+    Your reply should include the name of the establishment, a brief but informative description, details like price range (if relevant), and opening hours. Feel free to enrich the response with any additional information that might be helpful—such as the type of cuisine, notable services, or personal recommendations—so the user gets a complete and helpful picture.
+  agent: service
