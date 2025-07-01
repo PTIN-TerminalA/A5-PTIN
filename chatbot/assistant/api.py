@@ -19,7 +19,7 @@ load_dotenv(dotenv_path=Path('./.env'))
 
 app = FastAPI()
 
-chat_history = []
+history = []
 
 class UserRequest(BaseModel):
     user_id: int
@@ -42,34 +42,34 @@ async def root():
 @app.post("/ask_agent/", response_class=PlainTextResponse, responses={200: {"content": {"text/plain": {}}}})
 async def ask_agent(request: UserRequest):
     try:
-        # conn = pymysql.connect(
-        #     host=os.getenv("DB_HOST"),
-        #     user=os.getenv("DB_USER"),
-        #     password=os.getenv("DB_PASSWORD"),
-        #     database=os.getenv("DB_NAME"),
-        #     cursorclass=pymysql.cursors.Cursor
-        # )
+        conn = pymysql.connect(
+            host=os.getenv("DB_HOST"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            database=os.getenv("DB_NAME"),
+            cursorclass=pymysql.cursors.Cursor
+        )
 
-        # cursor = conn.cursor()
+        cursor = conn.cursor()
 
-        # query = """
-        # SELECT sender, message 
-        # FROM (
-        #     SELECT *
-        #     FROM chat_message
-        #     WHERE user_id = %s
-        #         AND sender IN ('user', 'bot')
-        #     ORDER BY date_time DESC
-        #     LIMIT 4
-        # ) AS ultimos
-        # ORDER BY date_time ASC;
-        # """
+        query = """
+        SELECT sender, message 
+        FROM (
+            SELECT *
+            FROM chat_message
+            WHERE user_id = %s
+                AND sender IN ('user', 'bot')
+            ORDER BY date_time DESC
+            LIMIT 4
+        ) AS ultimos
+        ORDER BY date_time ASC;
+        """
 
-        # cursor.execute(query, (request.user_id,))
-        # resultados = cursor.fetchall()
-        # hist = [{'sender': r[0], 'message': r[1]} for r in resultados]
+        cursor.execute(query, (request.user_id,))
+        resultados = cursor.fetchall()
+        hist = [{'sender': r[0], 'message': r[1]} for r in resultados]
 
-        # chat_history = "\n".join(f"{h['sender']}: {h['message']}" for h in hist)
+        chat_history = "\n".join(f"{h['sender']}: {h['message']}" for h in hist)
 
         inputs = {
             "user_id": request.user_id,
@@ -132,25 +132,25 @@ async def ask_agent(request: UserRequest):
         else:
             response = "Hi ha hagut un problema. Si us plau, provi de nou."
 
-        # chat_history.append(f"User: {request.user_message}")
-        # chat_history.append(f"Assistant: {response}")
+        history.append(f"User: {request.user_message}")
+        history.append(f"Assistant: {response.raw}")
         
-        # is_encrypted = 0  # o 1 si aplica
+        is_encrypted = 0  # o 1 si aplica
 
-        # query = """
-        # INSERT INTO chat_message (user_id, sender, message, is_encrypted)
-        # VALUES (%s, %s, %s, %s);
-        # """
+        query = """
+        INSERT INTO chat_message (user_id, sender, message, is_encrypted)
+        VALUES (%s, %s, %s, %s);
+        """
 
-        # valores = (request.user_id, "user", request.user_message, is_encrypted)
-        # cursor.execute(query, valores)
+        valores = (request.user_id, "user", request.user_message, is_encrypted)
+        cursor.execute(query, valores)
 
-        # valores = (request.user_id, "bot", response.raw, is_encrypted)
-        # cursor.execute(query, valores)
-        # conn.commit()
+        valores = (request.user_id, "bot", response.raw, is_encrypted)
+        cursor.execute(query, valores)
+        conn.commit()
 
-        # cursor.close()
-        # conn.close()
+        cursor.close()
+        conn.close()
 
         return response.raw
     except Exception as e:
@@ -161,4 +161,4 @@ async def ask_agent(request: UserRequest):
 @app.get("/debug/history")
 async def get_history():
     # return the raw list of turns so you can inspect it
-    return {"history": chat_history}
+    return {"history": history}
